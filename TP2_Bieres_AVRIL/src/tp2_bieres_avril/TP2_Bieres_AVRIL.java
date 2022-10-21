@@ -20,11 +20,12 @@ public class TP2_Bieres_AVRIL {
         uneBiere.degresAlcool = 7.0 ;
         uneBiere.brasserie = "Dubuisson" ; 
         uneBiere.ouverte = false ; 
-        uneBiere.lireEtiquette() ; 
+        //uneBiere.lireEtiquette() ; 
         
         BouteilleBiere Biere_2 = new BouteilleBiere() ;
         Biere_2.Nom = "Leffe";
         Biere_2.degresAlcool = 6.0 ;
         Biere_2.brasserie = "Abbaye de Leffe" ; 
-        Biere_2.lireEtiquette() ;
+        //Biere_2.lireEtiquette() ;
+}
 }
