@@ -27,5 +27,11 @@ public class TP2_Bieres_AVRIL {
         Biere_2.degresAlcool = 6.0 ;
         Biere_2.brasserie = "Abbaye de Leffe" ; 
         //Biere_2.lireEtiquette() ;
+        
+        BouteilleBiere Biere_3 = new BouteilleBiere() ;
+        Biere_3.Nom = "Desperados";
+        Biere_3.degresAlcool = 3.6 ;
+        Biere_3.brasserie = " Brasserie de l'Espérance" ; 
+        //Biere_3.lireEtiquette() ;
 }
 }
