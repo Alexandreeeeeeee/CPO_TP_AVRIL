@@ -32,6 +32,6 @@ public class TP2_Bieres_AVRIL {
         Biere_3.Nom = "Desperados";
         Biere_3.degresAlcool = 3.6 ;
         Biere_3.brasserie = " Brasserie de l'Espérance" ; 
-        //Biere_3.lireEtiquette() ;
+        Biere_3.lireEtiquette() ;
 }
 }
