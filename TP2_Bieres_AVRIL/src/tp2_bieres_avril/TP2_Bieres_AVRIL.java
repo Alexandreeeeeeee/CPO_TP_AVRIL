@@ -37,29 +37,28 @@ public class TP2_Bieres_AVRIL {
        System.out.println(uneBiere2);
        System.out.println("\n");
        
-       BouteilleBiere Biere1664 = new BouteilleBiere("1664", 5.2, "Latour");
+       BouteilleBiere uneBiere3 = new BouteilleBiere("1664", 5.2, "Latour");
 
-       Biere1664.Décapsuler();
-       Biere1664.lireEtiquette();
+       uneBiere3.Décapsuler();
+       uneBiere3.lireEtiquette();
        
-       System.out.println(Biere1664);
+       System.out.println(uneBiere3);
        System.out.println("\n");
      
-       BouteilleBiere BiereDesperados = new BouteilleBiere("Desperados", 6.2, "IO");
+       BouteilleBiere uneBiere4 = new BouteilleBiere("Desperados", 6.2, "IO");
 
-       BiereDesperados.lireEtiquette();
+       uneBiere4.lireEtiquette();
        
-       System.out.println(BiereDesperados);     
+       System.out.println(uneBiere4);     
        System.out.println("\n");
 
-       BouteilleBiere BiereSkoll = new BouteilleBiere("Skoll", 8.0, "Leviatan");
+       BouteilleBiere uneBiere5 = new BouteilleBiere("Skoll", 8.0, "Leviatan");
 
-       BiereSkoll.Décapsuler();
-       BiereSkoll.lireEtiquette();
+       uneBiere5.Décapsuler();
+       uneBiere5.lireEtiquette();
 
-       System.out.println(BiereSkoll);
+       System.out.println(uneBiere5);
        
     }
-
 }
 
