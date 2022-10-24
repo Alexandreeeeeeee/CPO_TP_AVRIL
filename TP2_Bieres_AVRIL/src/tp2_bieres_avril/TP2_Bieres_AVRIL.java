@@ -15,8 +15,9 @@ public class TP2_Bieres_AVRIL {
      */
     public static void main(String[] args) {
 
-       BouteilleBiere uneBiere = new BouteilleBiere("Cuvee des Trolls", 7.0, "Dubuisson");
-       //uneBiere.Nom = "Cuvee des Trolls";
+       BouteilleBiere uneBiere = new BouteilleBiere("Cuvee des Trolls", 7.0, "Dubuisson"); // mise en place de la méthode constructeur
+       //ici le new ... perme de donner un nom à l'objet BouteilleBiere créé dans l'autre fichier (sans nom il est qd meme stocké)
+       //uneBiere.Nom = "Cuvee des Trolls"; // partie suivante mis en commentaire pour ne pas interférer 
        //uneBiere.degreAlcool = 7.0;
        //uneBiere.brasserie = "Dubuisson";
        //uneBiere.ouverte = false;
