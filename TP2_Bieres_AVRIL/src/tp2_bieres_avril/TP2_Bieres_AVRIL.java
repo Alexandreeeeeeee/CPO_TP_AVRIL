@@ -25,7 +25,7 @@ public class TP2_Bieres_AVRIL {
        uneBiere.lireEtiquette();
 
        System.out.println(uneBiere);
-       System.out.println("\n");
+       System.out.println("\n"); // pour plus de lisibilité ... peut etre optimiser ??
 
        BouteilleBiere uneBiere2 = new BouteilleBiere("leffe", 6.6, "Abbaye de Leffe");
        //uneBiere2.Nom = "leffe";
@@ -62,4 +62,4 @@ public class TP2_Bieres_AVRIL {
        
     }
 }
-
+// .  FIN PARTIE 1 .
