@@ -12,37 +12,42 @@ import java.util.Scanner;
  */
 public class TP1_CONVERTISSEUR_AVRIL {
 
-    static Scanner sc = new Scanner(System.in); // déclaration du scanner.
+
     
     public static void main(String[] args) {
+        
+        Convertisseur c = new Convertisseur () ; 
+        
+        Scanner sc;
+        sc  = new Scanner (System.in) ;
+        
         System.out.println("\nEntrer une températeur à convertir : "); // demande à l'utilisateur.
-        Double Temp = sc.nextDouble(); // stock le choix de l'utilisateur.
+        int Temp = sc.nextInt(); // stock le choix de l'utilisateur.
         System.out.println("(1) Celcius en Kelvin \n (2) Kelvin en Celcius \n (3) Farenheit en Celcius \n (4) Celcius en Farenheit \n (5) Farenheit en Kelvin \n (6) Kelvin en Farenheit");
-        Double rep = sc.nextDouble();
-    }
+        int rep = sc.nextInt();
+    
         if (rep == 1) {
-            c.CelciusVersKelvin() ;  
+            c.CelciusVersKelvin(Temp) ;  
             c.toString() ;
         }
         if (rep == 2) {
-            c.KelvinVersCelcius () ; 
+            c.KelvinVersCelcius (Temp) ; 
             c.toString() ;
-    }
+        }
         if (rep == 3) {
-            c.FarenheitVersCelcius () ;
+            c.FarenheitVersCelcius (Temp) ;
             c.toString() ;
-    }
+        }
         if (rep == 4) {
-            c.CelciusVersFarenheit () ;
+            c.CelciusVersFarenheit (Temp) ;
             c.toString() ;
-}
+        }
         if (rep == 5) {
-            c.FarenheitVersKelvin () ; 
+            c.FarenheitVersKelvin (Temp) ; 
             c.toString() ;
-}
+        }
         if (rep == 6) {
-            c.KelvinVersFarenheit () ;
-            c.toString() ;
-            
-}
-}
+            c.KelvinVersFarenheit (Temp) ;
+            c.toString() ;    
+        }
+    }}
