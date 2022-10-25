@@ -10,44 +10,45 @@ public class Convertisseur {
     Double nbConversions ; 
     
 public void Convertisseur () {
-    Convertisseur c = new Convertisseur () ; 
+
 }
-public void CelciusVersKelvin () {
+public void CelciusVersKelvin (double temp) {
         double kelvin ;
-        Kelvin = temp + 273.15 ;
-        return Kelvin ;
+        kelvin = temp + 273.15 ;
+        System.out.println("Votre valeur vaut " + kelvin+ " degrés Kelvins");
 }
 
-public void KelvinVersCelcius () {
+public void KelvinVersCelcius (double temp) {
     double Celcius ;
     Celcius = temp - 273.15 ;
-    return Celcius ;
+    System.out.println("Votre valeur vaut " + Celcius+ " degrés Celcius");
 }
 
-public void FarenheitVersCelcius() {
+public void FarenheitVersCelcius(double temp) {
     double Celcius ;
     Celcius = (temp - 32) * 5/9 ;
-    return Clecius ;
+    System.out.println("Votre valeur vaut " + Celcius+ " degrés Celcius");
 }
 
-public void CelciusVersFarenheit() {
+public void CelciusVersFarenheit(double temp) {
     double Farenheit ;
     Farenheit = (temp*9/5) + 32 ;
-    return Farenheit ;
+    System.out.println("Votre valeur vaut " + Farenheit+ " degrés Farenheit");
 }
 
-public void FarenheitVersKelvin() {
+public void FarenheitVersKelvin(double temp) {
     double Kelvin ;
     Kelvin = (temp - 32) * 5/9 + 273.15 ;
-    return Kelvin ;
+    System.out.println("Votre valeur vaut " + Kelvin+ " degrés Kelvin");
 }
 
-public void KelvinVersFarenheit() {
+public void KelvinVersFarenheit(double temp) {
     double Farenheit ;
     Farenheit = (temp - 273.15) * 9/5 + 32 ;
-    return Farenheit ;
+    System.out.println("Votre valeur vaut " + Farenheit+ " degrés Farenheit");
+}
     
-public String toString() {
+public String toString(double temp) {
 
     String chaine_a_retourner ;
     chaine_a_retourner = ("Voici votre conversion ;" + temp);
