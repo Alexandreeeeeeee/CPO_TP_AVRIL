@@ -12,8 +12,6 @@ import java.util.Scanner;
  */
 public class TP1_CONVERTISSEUR_AVRIL {
 
-
-    
     public static void main(String[] args) {
         
         Convertisseur c = new Convertisseur () ; 
@@ -48,6 +46,9 @@ public class TP1_CONVERTISSEUR_AVRIL {
         }
         if (rep == 6) {
             c.KelvinVersFarenheit (Temp) ;
-            c.toString() ;    
+            c.toString() ; 
         }
+        String conv = c.toString();
+        System.out.println(conv);
+            
     }}
