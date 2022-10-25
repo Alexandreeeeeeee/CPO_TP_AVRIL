@@ -23,7 +23,7 @@ public class TP1_CONVERTISSEUR_AVRIL {
         
         System.out.println("\nEntrer une températeur à convertir : "); // demande à l'utilisateur.
         int Temp = sc.nextInt(); // stock le choix de l'utilisateur.
-        System.out.println("(1) Celcius en Kelvin \n (2) Kelvin en Celcius \n (3) Farenheit en Celcius \n (4) Celcius en Farenheit \n (5) Farenheit en Kelvin \n (6) Kelvin en Farenheit");
+        System.out.println("\n Quelle conversion voulez effectuer ? \n\n (1) Celcius en Kelvin \n (2) Kelvin en Celcius \n (3) Farenheit en Celcius \n (4) Celcius en Farenheit \n (5) Farenheit en Kelvin \n (6) Kelvin en Farenheit\n");
         int rep = sc.nextInt();
     
         if (rep == 1) {
