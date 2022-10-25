@@ -46,4 +46,10 @@ public void KelvinVersFarenheit() {
     double Farenheit ;
     Farenheit = (temp - 273.15) * 9/5 + 32 ;
     return Farenheit ;
+    
+public String toString() {
+
+    String chaine_a_retourner ;
+    chaine_a_retourner = ("Voici votre conversion ;" + temp);
+    return chaine_a_retourner ;
 }}
