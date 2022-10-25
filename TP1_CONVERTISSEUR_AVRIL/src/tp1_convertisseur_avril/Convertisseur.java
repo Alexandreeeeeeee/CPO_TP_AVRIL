@@ -9,14 +9,15 @@ public class Convertisseur {
     // On définit les attributs de la classe Convertisseur.
     int nbConversions ; // ne pas mettre dans le constructeur sinon sera variable locale.
 public Convertisseur () {
-        nbConversions = 0 ;
+        nbConversions = 0 ; // initialisation à zéro 
     }
 
-public void CelciusVersKelvin (double temp) {
+public void CelciusVersKelvin (double temp) { // la syntax de chaque méthodes déclarée est la meme, on donne le type de la variable
+    // ensuite le calcul de conversion 
     double kelvin ;
     kelvin = temp + 273.15 ;
-    nbConversions += 1 ;
-    System.out.println("Votre valeur vaut " + kelvin+ " degrés Kelvins");
+    nbConversions += 1 ; // ajout de + 1 au nombre totale de conversion 
+    System.out.println("Votre valeur vaut " + kelvin+ " degrés Kelvins"); // puis on affiche 
 }
 
 public void KelvinVersCelcius (double temp) {
@@ -55,7 +56,7 @@ public void KelvinVersFarenheit(double temp) {
 }
     
 @Override
-public String toString () {
-    return "nb de conversions: "+ nbConversions;
+public String toString () { // on retournera une chaine de caractère donc public string 
+    return "nb de conversions: "+ nbConversions; // utilisation de la variable nbConversions 
 }
 }

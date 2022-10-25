@@ -6,10 +6,6 @@ package tp1_convertisseur_avril;
 
 import java.util.Scanner;
 
-/**
- *
- * @author alexa
- */
 public class TP1_CONVERTISSEUR_AVRIL {
 
     public static void main(String[] args) {
@@ -17,14 +13,14 @@ public class TP1_CONVERTISSEUR_AVRIL {
         Convertisseur c = new Convertisseur () ; 
         
         Scanner sc;
-        sc  = new Scanner (System.in) ;
-        
+        sc  = new Scanner (System.in) ; // création du scanner.
+        // mise en place du pseudo interface pour l'utilisateur.
         System.out.println("\nEntrer une températeur à convertir : "); // demande à l'utilisateur.
         int Temp = sc.nextInt(); // stock le choix de l'utilisateur.
         System.out.println("\n Quelle conversion voulez effectuer ? \n\n (1) Celcius en Kelvin \n (2) Kelvin en Celcius \n (3) Farenheit en Celcius \n (4) Celcius en Farenheit \n (5) Farenheit en Kelvin \n (6) Kelvin en Farenheit\n");
         int rep = sc.nextInt();
     
-        if (rep == 1) {
+        if (rep == 1) { // en fonction des chiffres rentrés par l'utilisateur on appel les fonctions correspondantes dans la class de convertisseur.
             c.CelciusVersKelvin(Temp) ;  
             c.toString() ;
         }
@@ -48,7 +44,7 @@ public class TP1_CONVERTISSEUR_AVRIL {
             c.KelvinVersFarenheit (Temp) ;
             c.toString() ; 
         }
-        String conv = c.toString();
+        String conv = c.toString(); // appel de la fonction toString pour afficher le nombre de Conversions.
         System.out.println(conv);
             
     }}
