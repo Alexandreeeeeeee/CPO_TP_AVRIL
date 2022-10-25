@@ -13,7 +13,7 @@ public class TP2_relation_1_AVRIL {
         Voiture uneMicra = new Voiture ("Micra", "Nissan", 4 ) ;
         Personne bob = new Personne("Bobby", "Sixkiller");
         Personne reno = new Personne("Reno", "Raines");
-        System.out.println("liste des voitures disponibles "+ uneClio + 
+        System.out.println("liste des voitures disponibles :\n"+ uneClio + 
         "\n" + uneAutreClio + "\n" + une2008 + "\n" + uneMicra ) ;
 
     }
