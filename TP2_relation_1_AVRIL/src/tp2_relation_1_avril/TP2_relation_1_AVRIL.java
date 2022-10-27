@@ -8,7 +8,7 @@ public class TP2_relation_1_AVRIL {
 
     public static void main(String[] args) {
         
-        // Initialisation de 4 voitures différentes.
+        // Initialisation de 4 voitures différentes. + Les 2 noouvelles voitures qui seront utilisées aprés 
         
         Voiture uneClio = new Voiture ("Clio", "Renault", 5 ) ;
         Voiture uneAutreClio = new Voiture ("Clio", "Renault", 5 ) ;
@@ -26,16 +26,18 @@ public class TP2_relation_1_AVRIL {
         "\n" + uneAutreClio + "\n" + une2008 + "\n" + uneMicra ) ;
 
         bob.liste_voitures[0] = uneClio;
-        bob.nbVoitures += 1;
+        bob.nbVoitures += 1; // permet de visualiser les nb de voitures qu'a bob et reno
         uneClio.proprietaire = bob;
         bob.liste_voitures[1] = uneMicra;
         bob.nbVoitures +=1;
         uneMicra.proprietaire = bob;
         
+        // affichage dans la console de qui à quoi ...
         System.out.println("la premiere voiture de Bob est une " + bob.liste_voitures[0] ) ;
         System.out.println("la deuxieme voiture de Bob est une " + bob.liste_voitures[1] ) ;
         System.out.println("\n");
         
+        // meme procédure que pour BOB.
         reno.liste_voitures[0] = uneAutreClio;
         reno.nbVoitures += 1;
         uneAutreClio.proprietaire = reno;
@@ -47,10 +49,12 @@ public class TP2_relation_1_AVRIL {
         System.out.println("la deuxieme voiture de Reno est une " + reno.liste_voitures[1] ) ;
         System.out.println("\n");
         
+        // ajout de nouvelles voitures à BOb, attention à bien les déclarer avant grace à la méthode dans Personne.
         bob.ajouter_voiture(Agera);
         bob.ajouter_voiture(uneMustang);
         bob.ajouter_voiture(uneAutreClio);
-             
+        
+        // affichage final.
         System.out.println("\n");
         System.out.println("la premiere voiture de Bob est une " + bob.liste_voitures[0] ) ;
         System.out.println("la deuxieme voiture de Bob est une " + bob.liste_voitures[1] ) ;

@@ -19,7 +19,7 @@ public class Voiture {
         PuissanceCV = unePuissance;  
     }
    
-    @Override
+    @Override // Affichage 
     public String toString () {
         return(Marque + " " + Modele);
     }

@@ -20,24 +20,23 @@ public Personne (String UnNom, String UnPrenom) {
     nbVoitures = 0; // initialisation à 0   
 }
 
-@Override
+@Override // méthode d'affichage ToString classique.
 public String toString () {
     return(Nom + " " + Prenom);
 }
 public boolean ajouter_voiture( Voiture voiture_a_ajouter) {
-        if (voiture_a_ajouter.proprietaire!=null){
+        if (voiture_a_ajouter.proprietaire!=null){ // vérification de si la voiture n'appartient déja pas à qq.
             System.out.println("Voiture volé elle appartient déjà à quelqu'un ");
             return false;}
             
-        else if (nbVoitures==3){
+        else if (nbVoitures==3){ // nombre de voitures full.
             System.out.println("Trop de voiture ");
         return false ;
         }
        liste_voitures[nbVoitures]=voiture_a_ajouter;
        nbVoitures+=1;
        voiture_a_ajouter.proprietaire = this ;
-       System.out.println("La voiture ajouté est : "+voiture_a_ajouter);
-// cela dit à la voiture que l'objet qui utilise la methode ajouter_voiture est son proprietaire  
+       System.out.println("La voiture ajouté est : "+voiture_a_ajouter); // si la voiture n'a pas de propriétaire et qu'un propriétaire n'a pas 3 voitures, on lui assigne cette voiture.
        return true ; 
     }    
 }
