@@ -6,21 +6,21 @@ package tp2_relation_1_avril;
  */
 
 public class Voiture {
+   
+    String Modele;
+    String Marque;
+    int PuissanceCV;
+    Personne proprietaire; // rajout d'une variable propriétaire de type personne que fera référence à la personne qui appartient la voiture.
     
-    String Modele ; 
-    String Marque ; 
-    int PuissanceCV ;
-    String Voiture ; 
-    
-public Voiture (String UnModele, String UneMarque, int UnePuissance) {
-    Modele = UnModele ;
-    Marque = UneMarque ;
-    PuissanceCV = UnePuissance ; 
-}
-
-@Override
-
-public String toString () {
- return Voiture;
-}
+    public Voiture (String unModele, String uneMarque, int unePuissance) {
+        
+        Modele = unModele;
+        Marque = uneMarque;
+        PuissanceCV = unePuissance;  
+    }
+   
+    @Override
+    public String toString () {
+        return(Marque + " " + Modele);
+    }
 }
