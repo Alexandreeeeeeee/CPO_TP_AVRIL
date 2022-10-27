@@ -10,6 +10,9 @@ public class Moussaka {
     
 public Moussaka (int x) {
     nbCalories = x ; 
-}}
-
-
+}
+@Override
+    public String toString () {
+    return("Cette moussaka fait " + nbCalories + " calories");
+    }
+}

@@ -30,12 +30,14 @@ public class TP2_manip_AVRIL {
         // Ces lignes sont fausses car on ne peut pas référencer un type objet qui n'a aucun rapport avec ce qu'on annonce,
         // ici, les class Tartiflette et Moussaka sont indépendantes.
         
-        int [] tab_Moussaka;
-        tab_Moussaka = new int[10];
+        Moussaka [] tab = new Moussaka [10];
         
-        for (int i=0 ;tab_Moussaka.length>=i ;i++){
-            tab_Moussaka[i] = new Type[Moussaka] ; 
-}
+        for (int i = 0;i<10;i++){
+            tab[i] = new Moussaka(100+i);
+            System.out.println(tab[i]);
+            }
 }
 
         }
+// on s'aide d'une boucle for pour pouvoir créer le tableau de 10 Moussakas et leur assigner une valeur en calories.
+// bien déclarer le tableaa juste avant.
