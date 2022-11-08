@@ -8,6 +8,11 @@ package tp3_heritage;
  *
  * @author alexa
  */
+import Armes.Epée;
+import Armes.Baton;
+import Armes.Arme;
+import java.util.ArrayList;
+
 public class TP3_Heritage {
 
     /**
@@ -23,6 +28,17 @@ public class TP3_Heritage {
         System.out.println(arme2);
         System.out.println(arme3);
         System.out.println(arme4);
-
+        
+        ArrayList<Arme> Tab = new ArrayList<Arme>(); // attention à bien mettre entre triangle pas un type de variable mais le nomde la classe qu'on stock.
+        Tab.add(arme1);
+        Tab.add(arme2);
+        Tab.add(arme3);
+        Tab.add(arme4);
+        System.out.println(Tab);
+        
+        int TailleTab = Tab.size(); // récupération de la taille du talbeau dynamqiue avec la méthode .size()
+        System.out.println("La taille du tableau dynamique est de " + TailleTab);
     }   
+
+
 }

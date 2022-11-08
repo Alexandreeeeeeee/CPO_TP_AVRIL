@@ -1,4 +1,4 @@
-package tp3_heritage;
+package Armes;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
