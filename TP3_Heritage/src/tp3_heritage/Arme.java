@@ -17,9 +17,5 @@ public class Arme {
        Nom = n;
        NivAttaque = i;
    }     
-public String toString() {
-
-    String chaine_a_retourner ;
-    chaine_a_retourner = ("Votre arme se nomme " + Nom + "et est de niveau " + NivAttaque + ".");
-    return chaine_a_retourner ;
-}}
+   
+}

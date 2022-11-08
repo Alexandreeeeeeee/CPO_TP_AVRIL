@@ -16,5 +16,11 @@ public class Epée extends Arme {
         if (a > 100) indice = 99;
         else indice = a;
     }
-    
-}
+ @Override
+
+public String toString() {
+
+    String chaine_a_retourner ;
+    chaine_a_retourner = ("Votre arme se nomme " + Nom + " et est de niveau d'attaque " + NivAttaque + " est de finesse "+ indice);
+    return chaine_a_retourner ;   
+}}

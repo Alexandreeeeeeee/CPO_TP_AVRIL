@@ -17,5 +17,11 @@ public class Baton extends Arme {
         if (a > 100) age = 99;
         else age = a ;
     }
-    
-}
+@Override
+
+public String toString() {
+
+    String chaine_a_retourner ;
+    chaine_a_retourner = ("Votre arme se nomme " + Nom + " et est de niveau d'attaque " + NivAttaque + " est de finesse " + age);
+    return chaine_a_retourner ;
+}}
