@@ -16,6 +16,6 @@ public class Arme {
    public Arme(String n, int i){
        Nom = n;
        NivAttaque = i;
-   }     
-   
+   }   
+
 }

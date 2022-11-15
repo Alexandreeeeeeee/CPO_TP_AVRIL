@@ -58,7 +58,7 @@ public class TP3_Heritage {
         Tab2.add(perso3);
         Tab2.add(perso4);
         System.out.println(Tab2);
-    }   
+    }
 
     
 }
