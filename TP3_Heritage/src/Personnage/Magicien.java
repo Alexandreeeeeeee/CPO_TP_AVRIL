@@ -10,20 +10,19 @@ package Personnage;
  * @author alexa
  */
 public class Magicien extends Personnage {
-    boolean Confirme;
+    String a;
     
-    public Magicien (String n, int i, boolean a) {
+    public Magicien (String n, int i, boolean c) {
         super(n, i);
-        a = Confirme;
-        if (a = true) Confirme = a;
+        if (c == true) a = "confirmé";
         
-        else Confirme = a;
+        else a = "novice";
     }
 @Override
 
 public String toString() {
 
     String chaine_a_retourner ;
-    chaine_a_retourner = ("Il s'appelle " + Nom + " et a un niveau de vie de " + NivVie + ", il est confirmé : " + Confirme);
+    chaine_a_retourner = ("Il s'appelle " + Nom + " et a un niveau de vie de " + NivVie + ", il est" + a);
     return chaine_a_retourner ;   
 }}

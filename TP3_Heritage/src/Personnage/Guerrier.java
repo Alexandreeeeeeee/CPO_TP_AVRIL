@@ -10,20 +10,19 @@ package Personnage;
  * @author alexa
  */
 public class Guerrier extends Personnage {
-    boolean Acheval;
+    String a;
     
-    public Guerrier (String n, int i, boolean a){
+    public Guerrier (String n, int i, boolean c){
         super(n, i);  
-        a = Acheval;
-        if (a = true) Acheval = a;
+        if (c == true) a = "à cheval";
         
-        else Acheval = a;
+        else a = "à pied";
     }
 @Override
 
 public String toString() {
 
     String chaine_a_retourner ;
-    chaine_a_retourner = ("Il s'appelle " + Nom + " et a un niveau de vie de " + NivVie + ", il est à cheval : " + Acheval);
+    chaine_a_retourner = ("Il s'appelle " + Nom + " et a un niveau de vie de " + NivVie + ", il est " + a);
     return chaine_a_retourner ;   
 }}
