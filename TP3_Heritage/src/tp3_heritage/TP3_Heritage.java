@@ -27,10 +27,10 @@ public class TP3_Heritage {
         Baton arme3 = new Baton ("Chêne",4,5);
         Baton arme4 = new Baton ("Charme", 5,6);
         
-        System.out.println(arme1); // affichage dans la console
-        System.out.println(arme2);
-        System.out.println(arme3);
-        System.out.println(arme4);
+        //System.out.println(arme1); // affichage dans la console
+        //System.out.println(arme2);
+        //System.out.println(arme3);
+        //System.out.println(arme4);
         
         ArrayList<Arme> Tab = new ArrayList<Arme>(); // attention à bien mettre entre triangle pas un type de variable mais le nomde la classe qu'on stock.
         Tab.add(arme1);
@@ -40,17 +40,17 @@ public class TP3_Heritage {
         System.out.println(Tab);
         
         int TailleTab = Tab.size(); // récupération de la taille du talbeau dynamqiue avec la méthode .size()
-        System.out.println("La taille du tableau dynamique est de " + TailleTab);
+        //System.out.println("La taille du tableau dynamique est de " + TailleTab);
         
         Magicien perso1 = new Magicien ("Gandalf", 65, true );
         Magicien perso2 = new Magicien ("garcimore", 44,false);
         Guerrier perso3 = new Guerrier ("Conan",78, false);
         Guerrier perso4 = new Guerrier ("Lannister", 45, true); 
         
-        System.out.println(perso1); // affichage dans la console
-        System.out.println(perso2);
-        System.out.println(perso3);
-        System.out.println(perso4);
+        //System.out.println(perso1); // affichage dans la console
+        //System.out.println(perso2);
+        //System.out.println(perso3);
+        //System.out.println(perso4);
         
         ArrayList<Personnage> Tab2 = new ArrayList<Personnage>(); // attention à bien mettre entre triangle pas un type de variable mais le nomde la classe qu'on stock.
         Tab2.add(perso1);
