@@ -58,7 +58,40 @@ public class TP3_Heritage {
         Tab2.add(perso3);
         Tab2.add(perso4);
         System.out.println(Tab2);
-    }
 
+        // ajout de 2 nouveaux persos et de 6 armes différentes.
+        
+        Magicien HarryPetteur = new Magicien("HarryPetteur", 56, true);
+        Guerrier VoldeMorve = new Guerrier("VoldeMorve", 10, false);
+        Epée fourche = new Epée("fourche", 4, 78);
+        Epée excaliburne = new Epée("excaliburne", 35, 89);
+        Epée chaussures = new Epée("chaussures", 67, 99);
+        Baton casquette = new Baton("casquette", 43, 7);
+        Baton Luftenza = new Baton("Luftenza", 23, 90);
+        Baton Ordito = new Baton("Ordito", 80, 10);
+        
+        HarryPetteur.Ajouter_Arme(chaussures);
+        HarryPetteur.Ajouter_Arme(casquette);
+        HarryPetteur.Ajouter_Arme(Ordito);
+        
+        VoldeMorve.Ajouter_Arme(excaliburne);
+        VoldeMorve.Ajouter_Arme(Luftenza);
+        VoldeMorve.Ajouter_Arme(fourche);
+        
+        // on va attribuer aux 2 nouveaux persos des armes.
+        
+        HarryPetteur.Equiper_Arme("excaliburne");
+        VoldeMorve.Equiper_Arme("fourche");
+        
+        // Affichage des personnages
+        
+        System.out.println(HarryPetteur);
+        System.out.println(VoldeMorve);
+       
+        // test pour afficher si on peut bien voir le propriétaire de l'arme:
+        //System.out.println(excaliburne.proprietaire.Nom);
+        
+        
+    }
     
 }

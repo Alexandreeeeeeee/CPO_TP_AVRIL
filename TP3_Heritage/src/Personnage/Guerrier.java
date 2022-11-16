@@ -12,7 +12,7 @@ package Personnage;
 public class Guerrier extends Personnage {
     String a;
     
-    public Guerrier (String n, int i, boolean c){
+    public Guerrier (String n, int i, boolean c){ 
         super(n, i);  
         if (c == true) a = "à cheval";
         

@@ -4,8 +4,6 @@
  */
 package Armes;
 
-import Armes.Arme;
-
 /**
  *
  * @author alexa
@@ -17,6 +15,10 @@ public class Epée extends Arme {
         super(n, i);
         if (a > 100) indice = 99;
         else indice = a;
+    }
+    
+    public int GetIndice () {
+        return indice;
     }
  @Override
 
