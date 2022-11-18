@@ -33,10 +33,25 @@ public class CelluleDeGrille {
         if (avoirTrouNoir == false){
             avoirTrouNoir = true;
             System.out.print("Un trou noir a été ajouté !");
+            return true;
         }
     }
-    
+    public boolean supprimerTrouNoir(){
+        if (avoirTrouNoir == true){
+            avoirTrouNoir = false;
+            return false;
+        }
+    }
+    public boolean presenceTrouNoir(){
+        if (avoirTrouNoir == false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
+        
+
         
     
     
