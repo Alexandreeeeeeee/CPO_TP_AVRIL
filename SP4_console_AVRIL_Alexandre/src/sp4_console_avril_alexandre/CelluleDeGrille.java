@@ -29,35 +29,46 @@ public class CelluleDeGrille {
             return jetonCourant.lireCouleur();
         }
     }
+    public Jeton recupererJeton() { // récupération du Jeton.
+        if (jetonCourant == null){
+            Jeton jetonCourant_temp;
+            jetonCourant_temp = jetonCourant;
+            jetonCourant = null;
+            return jetonCourant_temp;
+        }
+        else {
+            return jetonCourant;
+        }
+    }
 }
-    //public boolean placerTrouNoir(){
-        //if (avoirTrouNoir == false){
-            //avoirTrouNoir = true;
-            //System.out.print("Un trou noir a été ajouté !");
-            //return true;
-        //}
-        //else{
-            //return false;
-        //}
-        //}
-    //public boolean supprimerTrouNoir(){
-        //if (avoirTrouNoir == true){
-            //avoirTrouNoir = false;
-            //return false;
-        //}
-        //else {
-            //return true;
-        //}
-    //}
-    //public boolean presenceTrouNoir(){
-    //if (avoirTrouNoir == false) {
-            //return false;
-        //}
-        //else {
-            //return true;
-       // 
-    //}
-//}
+    /*public boolean placerTrouNoir(){
+        if (avoirTrouNoir == false){
+            avoirTrouNoir = true;
+            System.out.print("Un trou noir a été ajouté !");
+            return true;
+        }
+        else{
+            return false;
+        }
+        }
+    public boolean supprimerTrouNoir(){
+        if (avoirTrouNoir == true){
+            avoirTrouNoir = false;
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    public boolean presenceTrouNoir(){
+    if (avoirTrouNoir == false) {
+            return false;
+        }
+        else {
+            return true;
+        
+    }
+}*/
         
 
         
