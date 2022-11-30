@@ -11,15 +11,16 @@ public class PlateauDeJeu {
         }
     }
     
-    public boolean ajouterJetonDansColonne(Jeton Jeton, int ligne){
-        for (int i = 0; i < 6; i++) {
-            if (Grille[i][ligne].presenceJeton() == true) {
-                return true;
+public int ajouterJetonDansColonne(Jeton j, int c ){
+        for (int i = 5; i<6; i++) {
+            if (Grille[i][c].presenceJeton() == false) {
+                Grille[i][c].affecterJeton(j);
+                return 0;
             }
-        }
-        return false;
-    }
-    
+        }return 0;
+}
+
+
     public boolean grilleRemplie(){ 
         for (int l = 0; l < 6; l++) {
             for (int c = 0; c < 7; c++) {
@@ -46,17 +47,17 @@ public static final String TEST = "\u001B[30m";
             System.out.print("\n");
             for (int c = 0; c<7; c++) {
                 System.out.print("\u001B[30m !");
-                if (Grille[l][c].lireCouleurDuJeton() == "R") {
+                if (Grille[l][c].lireCouleurDuJeton() == "Rouge") {
                     System.out.print("\u001B[31m");
-                    System.out.print("\u001B[0m |");
                 }
-                else if (Grille[l][c].lireCouleurDuJeton() == "J") {
+                else if (Grille[l][c].lireCouleurDuJeton() == "Jaune") {
                     System.out.print("\u001B[33m");
-                    System.out.print("\u001B[0m |");
                 }
             }
         }
     }
+
+   
     
     
     
