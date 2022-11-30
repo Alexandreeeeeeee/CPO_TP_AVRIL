@@ -13,7 +13,7 @@ public class PlateauDeJeu {
     
     public boolean ajouterJetonDansColonne(Jeton Jeton, int ligne){
         for (int i = 0; i < 6; i++) {
-            if (Grille[i][ligne].presenceJeton(Jeton) == true) {
+            if (Grille[i][ligne].presenceJeton() == true) {
                 return true;
             }
         }
@@ -38,27 +38,30 @@ public class PlateauDeJeu {
             }
         }
     }
+     
+public static final String TEST = "\u001B[30m";
     
-    public static final String Fond_Noir = "\u001B[30m";
-    public static final String Jeton_Rouge = "\u001B[41m";
-    public static final String Jeton_Jaune = "\u001B[43m";
-    
-    public void afficherGrilleSurConsole(){
-        for (int l = 0; l<6; l++){
-            System.out.println("\n");
-            for (int c = 0; c<7; c++){
-                if (Grille[l][c].lireCouleurDuJeton() == "Jaune"){
-                    System.out.println(Jeton_Jaune + Grille[l][c]);
+    public void afficherGrilleSurConsole() {
+        for (int l = 0; l<6 ; l++) {
+            System.out.print("\n");
+            for (int c = 0; c<7; c++) {
+                System.out.print("\u001B[30m !");
+                if (Grille[l][c].lireCouleurDuJeton() == "R") {
+                    System.out.print("\u001B[31m");
+                    System.out.print("\u001B[0m |");
                 }
-                else if (Grille[l][c].lireCouleurDuJeton() == "Rouge"){
-                    System.out.println(Jeton_Rouge + Grille[l][c]);
+                else if (Grille[l][c].lireCouleurDuJeton() == "J") {
+                    System.out.print("\u001B[33m");
+                    System.out.print("\u001B[0m |");
                 }
-                else System.out.println(Fond_Noir + Grille[l][c]);
             }
         }
     }
     
+    
+    
 }
+
 
 
     
