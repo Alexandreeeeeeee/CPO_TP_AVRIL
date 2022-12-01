@@ -72,6 +72,8 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         return Grille[x][y].lireCouleurDuJeton();
     }
     
+    // Ligne gagante 
+    
   public boolean ligneGagnantePourCouleur(String r) {
         int cpt = 0;
         boolean rep = false;
@@ -92,6 +94,8 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         return rep;
     }
     
+// Colonne gagnante
+  
     public boolean colonneGagnantePourCouleur(String r) {
         int cpt = 0;
         boolean rep = false;
@@ -114,6 +118,8 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         
     }
     
+// Diagonale montante gagnante  
+    
     public boolean diagonaleMontanteGagnantePourCouleur(String r) {
         boolean rep = false;
         for (int i = 3; i<6; i++) {
@@ -129,7 +135,8 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         return rep;
     }
         
-
+// Diagonale descendante gagnante
+    
     public boolean diagonaleDescendanteGagnantePourCouleur(String r) {
         boolean rep = false;
         for (int i = 3; i<6; i++) {
@@ -152,9 +159,5 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         else {
             return false;
         }
-    }  
+    }
 }
-
-
-
-    

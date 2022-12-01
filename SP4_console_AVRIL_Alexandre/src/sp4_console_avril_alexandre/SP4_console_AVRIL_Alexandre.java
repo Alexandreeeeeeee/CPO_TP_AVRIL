@@ -9,6 +9,9 @@ public class SP4_console_AVRIL_Alexandre {
         
         PlateauDeJeu G = new PlateauDeJeu();
         G.ajouterJetonDansColonne(test, 3);
+        G.ajouterJetonDansColonne(test, 3);
+        G.ajouterJetonDansColonne(test, 3);
+        G.ajouterJetonDansColonne(test, 3);
         G.afficherGrilleSurConsole();
 
     } 
