@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class PlateauDeJeu {
     CelluleDeGrille[][] Grille = new CelluleDeGrille[6][7];
 
+// création du plateau  de jeu sous forme de grille.  
+    
     public PlateauDeJeu() {
         for (int l = 0; l < 6; l++) {
             for (int c = 0; c < 7; c++) {
@@ -12,6 +14,8 @@ public class PlateauDeJeu {
             }
         }
     }
+    
+// ajout d'un jeton.   
          
 public boolean ajouterJetonDansColonne(Jeton j, int c ){
         for (int i = 0; i<6; i++) {
@@ -21,6 +25,9 @@ public boolean ajouterJetonDansColonne(Jeton j, int c ){
         }
         return false;
 }
+
+// 2 méthodes qui gèrent le statut de la grille de jeux.
+
     public boolean grilleRemplie(){ 
         for (int l = 0; l < 6; l++) {
             for (int c = 0; c < 7; c++) {
@@ -40,7 +47,7 @@ public boolean ajouterJetonDansColonne(Jeton j, int c ){
         }
     }
      
-public static final String TEST = "\u001B[30m"; // fond noir.
+public static final String TEST = "\u001B[30m"; // création d'un fond noir qui sera utilisé ou non.
     
   public void afficherGrilleSurConsole(){
         System.out.print("\n" + "|");
@@ -72,7 +79,7 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         return Grille[x][y].lireCouleurDuJeton();
     }
     
-    // Ligne gagante 
+// Ligne gagante //
     
   public boolean ligneGagnantePourCouleur(String r) {
         int cpt = 0;
@@ -94,7 +101,7 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         return rep;
     }
     
-// Colonne gagnante
+// Colonne gagnante //
   
     public boolean colonneGagnantePourCouleur(String r) {
         int cpt = 0;
@@ -118,7 +125,7 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         
     }
     
-// Diagonale montante gagnante  
+// Diagonale montante gagnante //
     
     public boolean diagonaleMontanteGagnantePourCouleur(String r) {
         boolean rep = false;
@@ -135,7 +142,7 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         return rep;
     }
         
-// Diagonale descendante gagnante
+// Diagonale descendante gagnante //
     
     public boolean diagonaleDescendanteGagnantePourCouleur(String r) {
         boolean rep = false;
@@ -152,6 +159,9 @@ public static final String TEST = "\u001B[30m"; // fond noir.
         return rep;
     }
     
+/*/ Cette fonction nous servira par la suite à afficher un message indiquiquant si la partie s'est soldée 
+    d'une égalité ou d'une victoire, mais de qui ?
+/*/
     public boolean etreGagnantePourCouleur(String r) {
         if (ligneGagnantePourCouleur(r) == true || colonneGagnantePourCouleur(r) == true || diagonaleMontanteGagnantePourCouleur(r) == true || diagonaleDescendanteGagnantePourCouleur(r) == true) {
             return true;
