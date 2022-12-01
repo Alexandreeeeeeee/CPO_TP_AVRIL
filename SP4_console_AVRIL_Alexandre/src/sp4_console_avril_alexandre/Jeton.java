@@ -12,18 +12,18 @@ public class Jeton {
     }
     
     @Override
-    public String toString() { // méthode d'affichage 
-
-    String c ;
-    if (couleur == "rouge");
-        c = ("R");
-    if (couleur == "jaune");
-        c = ("J");
-    return c;
+    public String toString() {
+        if (couleur == "rouge") {
+            return "R";
+        }
+        if (couleur == "jaune") {
+            return "J";
+        }
+        else{
+        return null;
+        }
+    }
 }
-    
-}
-
     
 
 

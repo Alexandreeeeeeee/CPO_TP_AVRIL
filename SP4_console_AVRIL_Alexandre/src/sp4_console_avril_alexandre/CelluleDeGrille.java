@@ -1,7 +1,7 @@
 package sp4_console_avril_alexandre;
 
 public class CelluleDeGrille {
-    private Jeton jetonCourant;
+    Jeton jetonCourant;
     private boolean avoirTrouNoir;
     boolean avoirDesintegrateur;
     
@@ -11,34 +11,53 @@ public class CelluleDeGrille {
         avoirDesintegrateur = false;
     }
     
-    public boolean presenceJeton(Jeton Jeton) {
+    public boolean presenceJeton() {
         if (jetonCourant == null) {
-            jetonCourant = Jeton;
             return false;
         }
         else {
-            System.out.print("La cellule est pleine !");
             return true;
         }
     }
-    public String lireCouleurDuJeton() { // lecteur d'une case, elle indique la couleur du jeton, ou rien.
+    public boolean affecterJeton(Jeton J){
         if (jetonCourant == null) {
-            return "vide";
+            jetonCourant = J;
+            return true;
         } 
         else {
-            return jetonCourant.lireCouleur();
+            return false;
         }
     }
-    public Jeton recupererJeton() { // récupération du Jeton.
-        if (jetonCourant == null){
-            Jeton jetonCourant_temp;
-            jetonCourant_temp = jetonCourant;
+    public String lireCouleurDuJeton() {
+            if(jetonCourant != null) {
+                return jetonCourant.lireCouleur();
+            }
+            else {
+                return "vide";
+            }
+        }
+public Jeton recupererJeton() {
+        if (jetonCourant != null) {
+            Jeton jetontmp = jetonCourant;
             jetonCourant = null;
-            return jetonCourant_temp;
+            return jetontmp;
         }
         else {
-            return jetonCourant;
+            return (null);
         }
+    }
+    
+@Override
+    public String toString() {
+        if (this.presenceJeton() == true) {
+            if (this.jetonCourant.lireCouleur() == "Rouge") {
+                return "R";
+            }
+            else {
+                return "J";
+            }
+        }
+        return null;
     }
 }
     /*public boolean placerTrouNoir(){
