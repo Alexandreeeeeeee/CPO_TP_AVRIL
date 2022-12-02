@@ -31,7 +31,35 @@ public class Partie {
         grilleJeu.afficherGrilleSurConsole();
         Scanner sc = new Scanner(System.in);
         System.out.println("Indiquez la colonne ou vous voulez jouer: ");
-        int rep =sc.nextInt();
+
+        boolean placement = false;
+            int c= -1;
+                while(!placement){
+		c= -1;
+		String ligne = sc.nextLine();
+		//vérification que la ligne est un entier entre 1 et colonne.
+		try{
+		c= Integer.valueOf(ligne);
+                    if(c>= 1 && c <= 7){
+			if(grilleJeu[c - 1][0] != '.'){
+                            System.out.println("Colonne pleine, réitérez");
+			} 
+                        else {
+			placement = true;
+			}
+                        }
+                        else {
+                            System.out.println("Nombre incorrect, réitérez");
+					}	
+				}
+                        catch(Exception e){System.out.println("Nombre incorrect, réitérez");}	
+			}
+			//placement du jeton:
+			int rang = 6-1;
+			while(grilleJeu[c - 1][rang] != '.'){
+                            rang--;
+			}
+			grilleJeu[c - 1][rang] = (i%2==1 ? 'X' : 'O');
     
     
 }
