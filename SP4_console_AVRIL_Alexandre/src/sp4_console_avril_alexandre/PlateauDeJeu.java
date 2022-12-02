@@ -1,7 +1,5 @@
 package sp4_console_avril_alexandre;
 
-import java.util.Scanner;
-
 public class PlateauDeJeu {
     CelluleDeGrille[][] Grille = new CelluleDeGrille[6][7];
 
