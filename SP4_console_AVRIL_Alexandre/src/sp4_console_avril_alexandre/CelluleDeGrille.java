@@ -5,7 +5,7 @@ public class CelluleDeGrille {
     private boolean avoirTrouNoir;
     boolean avoirDesintegrateur;
     
-    public CelluleDeGrille () {
+    public CelluleDeGrille () { // initialisation 
         jetonCourant = null;
         avoirTrouNoir = false;
         avoirDesintegrateur = false;
@@ -56,7 +56,7 @@ public boolean supprimerJeton() {
         }
 }
     
-@Override
+@Override // méhode ToString 
     public String toString() {
         if (this.presenceJeton() == true) {
             if (this.jetonCourant.lireCouleur() == "Rouge") {
@@ -75,6 +75,8 @@ public boolean supprimerJeton() {
             return null;
     }}
 
+// Rajouter de la gestion des Désintégrateurs et trous noirs.   
+    
     public boolean placerTrouNoir(){
         if (avoirTrouNoir == false){
             avoirTrouNoir = true;
@@ -115,8 +117,7 @@ public boolean placerDesintegrateur() {
         }
 
     }
-    
-    // teste la présence des désintégrateurs 
+    // présence désintégrateurs.
     public boolean presenceDesintegrateur() {
         if (avoirDesintegrateur == false) {
             return false;
@@ -137,7 +138,7 @@ public boolean placerDesintegrateur() {
         }
     }
     
-    // passe un troue noir en actif 
+    // rend les trous noirs opértionnels.
     public boolean activerTrouNoir() {
         if (avoirTrouNoir == true) {
             jetonCourant = null; // vide la cellule
@@ -149,5 +150,4 @@ public boolean placerDesintegrateur() {
             return false;
         }
     }   
-    
 }
