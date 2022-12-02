@@ -8,7 +8,7 @@ public class Partie {
     
     Joueur[] listeJoueurs = new Joueur[2];
     Joueur joueruCourant = listeJoueurs[0];
-    PlateauDeJeu plateau = new PlateauDeJeu();
+    PlateauDeJeu grilleJeu = new PlateauDeJeu();
     
     public Partie(Joueur j1, Joueur j2){
         listeJoueurs[0] = j1;
@@ -16,7 +16,7 @@ public class Partie {
     }
     
     public void attribuerCouleurAuxJoueurs(){
-        int  r = (int)(Math.random()*2);
+        int  r = (int)(2*Math.random());
         if (r ==0){
             listeJoueurs[0].couleur = "Rouge";
             listeJoueurs[1].couleur = "Jaune";
@@ -26,7 +26,14 @@ public class Partie {
             listeJoueurs[1].couleur = "Rouge";
         }
     }
+    public void initialiserPartie(){
+
+        grilleJeu.afficherGrilleSurConsole();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Indiquez la colonne ou vous voulez jouer: ");
+        int rep =sc.nextInt();
     
     
+}
 }
 
