@@ -46,6 +46,15 @@ public Jeton recupererJeton() {
             return (null);
         }
     }
+public boolean supprimerJeton() {
+        if (jetonCourant == null) {
+          //  System.out.print("Jeton innexistant ");
+            return false;
+        } else {
+            jetonCourant = null;
+            return true;
+        }
+}
     
 @Override
     public String toString() {
@@ -55,12 +64,18 @@ public Jeton recupererJeton() {
             }
             else {
                 return "J";
-            }
+            }}
+            if (this.avoirTrouNoir == true) {
+            return "@";
         }
-        return null;
-    }
-}
-    /*public boolean placerTrouNoir(){
+        if (this.avoirDesintegrateur == true && this.avoirTrouNoir == false) {
+            return "D";
+        }
+        else {
+            return null;
+    }}
+
+    public boolean placerTrouNoir(){
         if (avoirTrouNoir == false){
             avoirTrouNoir = true;
             System.out.print("Un trou noir a été ajouté !");
@@ -87,12 +102,52 @@ public Jeton recupererJeton() {
             return true;
         
     }
-}*/
-        
+}
 
-        
-    
-    
-        
-    
+public boolean placerDesintegrateur() {
+        if (avoirDesintegrateur == false) {
+            avoirDesintegrateur = true;
+            System.out.println("Ajout du desintegrateur effectué");
+            return true;
+        } else {
+            System.out.println("desintegrateur deja present");
+            return false;
+        }
 
+    }
+    
+    // teste la présence des désintégrateurs 
+    public boolean presenceDesintegrateur() {
+        if (avoirDesintegrateur == false) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // supprime le désintégrateur présent de la cellule
+    public boolean supprimerDesintegrateur() {
+        if (avoirDesintegrateur == true) {
+            avoirDesintegrateur = false;
+            System.out.println("Suppression du desintegrateur effectué");
+            return true;
+        } else {
+            System.out.println("pas de desintegrateur present");
+            return false;
+        }
+    }
+    
+    // passe un troue noir en actif 
+    public boolean activerTrouNoir() {
+        if (avoirTrouNoir == true) {
+            jetonCourant = null; // vide la cellule
+            avoirTrouNoir = false; // disparition du Trou Noir
+            System.out.println("Activation du Trou Noir");
+            return true;
+        } else {
+            System.out.println("Pas de Trou Noir dans cette cellule");
+            return false;
+        }
+    }   
+    
+}
