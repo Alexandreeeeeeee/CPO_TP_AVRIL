@@ -98,7 +98,6 @@ public class Partie {
     
 // Maintenant que le jeux est en place, on s'occupe de la gestion des actions des joueurs.
    public void débuterPartie() {
-
         String J1 = listeJoueurs[0].toString();
         String J2 = listeJoueurs[0].toString();
         
@@ -125,7 +124,7 @@ public class Partie {
                     
                     while (c < 0 || c > 6) { // "||" pour un "ou". //
                         System.out.println("Bon, arrete ca et choisi une colonne entre 1 et 6 ...");
-                        c = sc.nextInt() - 1;
+                        c = sc.nextInt();
                     }
                     joueurCourant.nbj--;
                     int i = 0;
