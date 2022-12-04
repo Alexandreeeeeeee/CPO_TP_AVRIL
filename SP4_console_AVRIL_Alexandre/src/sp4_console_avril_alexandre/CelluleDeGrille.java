@@ -19,15 +19,10 @@ public class CelluleDeGrille {
             return true;
         }
     }
-    public boolean affecterJeton(Jeton J){
-        if (jetonCourant == null) {
-            jetonCourant = J;
-            return true;
-        } 
-        else {
-            return false;
-        }
+    public void affecterJeton(Jeton J) {
+        jetonCourant = J;
     }
+    
     public String lireCouleurDuJeton() {
             if(jetonCourant != null) {
                 return jetonCourant.lireCouleur();

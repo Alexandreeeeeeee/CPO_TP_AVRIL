@@ -16,6 +16,7 @@ public class Partie {
     public Partie(Joueur j1, Joueur j2){
         listeJoueurs[0] = j1;
         listeJoueurs[1] = j2;
+        joueurCourant = null;
     }
     
     public void attribuerCouleurAuxJoueurs(){
@@ -97,7 +98,7 @@ public class Partie {
     
 // Maintenant que le jeux est en place, on s'occupe de la gestion des actions des joueurs.
    public void débuterPartie() {
-        
+
         String J1 = listeJoueurs[0].toString();
         String J2 = listeJoueurs[0].toString();
         
