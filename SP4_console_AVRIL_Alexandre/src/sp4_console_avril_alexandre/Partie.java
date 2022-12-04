@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Partie {
     
     Joueur[] listeJoueurs = new Joueur[2];
-    Joueur joueruCourant = listeJoueurs[0];
+    Joueur joueurCourant = listeJoueurs[0];
     PlateauDeJeu grilleJeu = new PlateauDeJeu();
     
     public Partie(Joueur j1, Joueur j2){
@@ -26,42 +26,66 @@ public class Partie {
             listeJoueurs[1].couleur = "Rouge";
         }
     }
-    public void initialiserPartie(){
-
-        grilleJeu.afficherGrilleSurConsole();
+ 
+    public void initialiserPartie() {
+              
+        grilleJeu.viderGrille(joueurCourant , joueurCourant );
         Scanner sc = new Scanner(System.in);
-        System.out.println("Indiquez la colonne ou vous voulez jouer: ");
+        
+        System.out.println("Entrer le nom du joueur 1 :");
+        Joueur j1 = new Joueur(sc.nextLine());
+        System.out.println("Entrer le nom du joueur 2 :");
+        Joueur j2 = new Joueur(sc.nextLine());
+        
+        listeJoueurs[0] = j1;
+        listeJoueurs[1] = j2;
+        
+        grilleJeu = new PlateauDeJeu();
+        Random r = new Random();
 
-        boolean placement = false;
-            int c= -1;
-                while(!placement){
-		c= -1;
-		String ligne = sc.nextLine();
-		//vérification que la ligne est un entier entre 1 et colonne.
-		try{
-		c= Integer.valueOf(ligne);
-                    if(c>= 1 && c <= 7){
-			if(grilleJeu[c - 1][0] != '.'){
-                            System.out.println("Colonne pleine, réitérez");
-			} 
-                        else {
-			placement = true;
-			}
-                        }
-                        else {
-                            System.out.println("Nombre incorrect, réitérez");
-					}	
-				}
-                        catch(Exception e){System.out.println("Nombre incorrect, réitérez");}	
-			}
-			//placement du jeton:
-			int rang = 6-1;
-			while(grilleJeu[c - 1][rang] != '.'){
-                            rang--;
-			}
-			grilleJeu[c - 1][rang] = (i%2==1 ? 'X' : 'O');
-    
-    
-}
-}
+        attribuerCouleurAuxJoueurs();
+        Random couleur = new Random();
+        int alea = couleur.nextInt(2);
+        
+        if (alea == 1) {
+            joueurCourant = listeJoueurs[0];
+            System.out.println(listeJoueurs[0].Nom + " commence");
+        } else {
+            joueurCourant = listeJoueurs[1];
+            System.out.println(listeJoueurs[1].Nom + " commence");
+        }
 
+        for (int i = 0; i < 21; i++) {
+            Jeton unJeton = new Jeton(listeJoueurs[0].couleur);
+            listeJoueurs[0].ajouterJeton(unJeton);
+            Jeton unJeton2 = new Jeton(listeJoueurs[1].couleur);
+            listeJoueurs[1].ajouterJeton(unJeton2);
+
+        }
+        Random pos = new Random();
+        int cpt = 0;
+        
+        for (int i = 0; i < 5; i++) {
+            
+            int l = pos.nextInt(5);
+            int c = pos.nextInt(6);
+            
+            if (cpt < 2) {
+                if (!grilleJeu.placerDesintegrateur(l, c)) {
+                    cpt--;
+                }
+                cpt++;
+            }
+            if (!grilleJeu.placerTrouNoir(l, c)) {
+                i--;
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            int l = pos.nextInt(5);
+            int c = pos.nextInt(6);
+            if (!grilleJeu.placerDesintegrateur(l, c)) {
+                i--;
+            }
+        }
+    }      
+}
