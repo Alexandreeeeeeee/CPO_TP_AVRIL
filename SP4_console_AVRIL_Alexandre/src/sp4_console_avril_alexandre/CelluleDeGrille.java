@@ -48,7 +48,6 @@ public Jeton recupererJeton() {
     }
 public boolean supprimerJeton() {
         if (jetonCourant == null) {
-          //  System.out.print("Jeton innexistant ");
             return false;
         } else {
             jetonCourant = null;
@@ -56,7 +55,8 @@ public boolean supprimerJeton() {
         }
 }
     
-@Override // méhode ToString 
+@Override // méhode ToString
+
     public String toString() {
         if (this.presenceJeton() == true) {
             if (this.jetonCourant.lireCouleur() == "Rouge") {
@@ -75,7 +75,8 @@ public boolean supprimerJeton() {
             return ".";
     }}
 
-// Rajouter de la gestion des Désintégrateurs et trous noirs.   
+// Gestion des Désintégrateurs et trous noirs. 
+// Avec bouléen.
     
     public boolean placerTrouNoir(){
         if (avoirTrouNoir == false){

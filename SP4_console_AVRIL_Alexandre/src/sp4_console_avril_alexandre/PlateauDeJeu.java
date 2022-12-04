@@ -13,7 +13,7 @@ public class PlateauDeJeu {
         }
     }
     
-// ajout d'un jeton.   
+// ajout d'un jeton dans la colonne que le joueur rentre. 
          
 public boolean ajouterJetonDansColonne(Jeton j, int c ){
         for (int i = 0; i<6; i++) {
@@ -26,7 +26,7 @@ public boolean ajouterJetonDansColonne(Jeton j, int c ){
 
 // 2 méthodes qui gèrent le statut de la grille de jeux.
 
-    public boolean grilleRemplie(){ 
+    public boolean grilleRemplie(){ // on se sert de celle dans l'initialisation de la partie.
         for (int l = 0; l < 6; l++) {
             for (int c = 0; c < 7; c++) {
                 if (Grille[l][c] != null) { 
@@ -53,8 +53,11 @@ public boolean ajouterJetonDansColonne(Jeton j, int c ){
         }
     }
      
-public static final String TEST = "\u001B[30m"; // création d'un fond noir qui sera utilisé ou non.
+public static final String TEST = "\u001B[30m"; // création d'un fond noir qui sera utilisé ou non. Bon pas utilisé, mais 
+// je voulais le laisser si jamais ( de base je voulais afficher des couleurs dans le super puissance 4 de la console).
     
+
+// on affiche la grille dans la console 
   public void afficherGrilleSurConsole(){
         System.out.print("\n" + "|");
         for (int l = 5; l>=0; l--) {
@@ -84,6 +87,7 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
         }
     }
   
+  // verification s'il n'y a pas les jetons d'un joueur, si oui on récupere sa couleur  vec "lireCouleurDuJeton".
     public boolean presenceJeton(int x, int y) {
         return Grille[x-1][y-1].presenceJeton();
     }
@@ -91,6 +95,8 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
     public String lireCouleurDuJeton(int x, int y) {
         return Grille[x][y].lireCouleurDuJeton();
     }
+    
+// PARTIE QUI GERE LES VICTOIRES //   
     
 // Ligne gagante //
     
@@ -170,8 +176,8 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
             }
         }
         return rep;
-    }
-    
+    }  
+ // maintenant, on vérifie qu'une des 4 conditions de victoire soit vrai pour que le jouer ai gagné.   
     public boolean etreGagnantePourCouleur(String r) {
         if (ligneGagnantePourCouleur(r) == true || colonneGagnantePourCouleur(r) == true || diagonaleMontanteGagnantePourCouleur(r) == true || diagonaleDescendanteGagnantePourCouleur(r) == true) {
             return true;
@@ -205,6 +211,7 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
         return res;
     }
     
+ // partie qui gère les trous noirs et désintégrateurs.
     public boolean presenceTrouNoir(int x, int y) {
         return Grille[x-1][y-1].presenceTrouNoir() == true;
     }
@@ -218,7 +225,7 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
         if (Grille[x][y].presenceTrouNoir() == true) {
             Grille[x][y].supprimerTrouNoir();
             res = true;
-            System.out.println("Votre jeton à été absorbé par un Trou noir !");
+            System.out.println("Votre jeton à été absorbé par un Trou noir !"); // message dans la console.
             return res;
         }
         return res;

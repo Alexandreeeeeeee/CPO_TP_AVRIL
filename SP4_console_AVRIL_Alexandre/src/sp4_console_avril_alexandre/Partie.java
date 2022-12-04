@@ -1,5 +1,6 @@
 
-package sp4_console_avril_alexandre;
+package sp4_console_avril_alexandre; // l'une des classes les plus compliquée à coder
+// avec l'aide des quelques camarades.
 
 import java.util.Random;
 import java.util.Scanner;
@@ -8,7 +9,7 @@ public class Partie {
     
     //ATTRIBUTS //
     Joueur[] listeJoueurs = new Joueur[2];
-    Joueur joueurCourant = listeJoueurs[0];
+    Joueur joueurCourant;
     PlateauDeJeu grilleJeu = new PlateauDeJeu();
     
     //CONSTRUCTEUR //
@@ -18,7 +19,8 @@ public class Partie {
     }
     
     public void attribuerCouleurAuxJoueurs(){
-        int  r = (int)(2*Math.random());
+        int  r = (int)(2*Math.random()); // random donne un chiffre entre 0 et 1, nous on veut un entie donc on met int
+        // et x2
         if (r ==0){
             listeJoueurs[0].couleur = "Rouge";
             listeJoueurs[1].couleur = "Jaune";
@@ -29,27 +31,29 @@ public class Partie {
         }
     }
  
+    // ok c'est partie on s'accroche ... 
     public void initialiserPartie() {
               
-        grilleJeu.viderGrille(joueurCourant , joueurCourant );
-        Scanner sc = new Scanner(System.in);
+        grilleJeu.viderGrille(joueurCourant , joueurCourant ); // vidange de la grille.
+        Scanner sc = new Scanner(System.in); // on utilise la méthode scanner importée pour récupérer ce que 
+        // l'utilisateur rentre dans la console.
         
         System.out.println("Entrer le nom du joueur 1 :");
         Joueur j1 = new Joueur(sc.nextLine());
         System.out.println("Entrer le nom du joueur 2 :");
         Joueur j2 = new Joueur(sc.nextLine());
         
-        listeJoueurs[0] = j1;
+        listeJoueurs[0] = j1; // attribuation des couleurs.
         listeJoueurs[1] = j2;
         
-        grilleJeu = new PlateauDeJeu();
+        grilleJeu = new PlateauDeJeu(); // on créé une grille de jeu
         Random r = new Random();
 
         attribuerCouleurAuxJoueurs();
         Random couleur = new Random();
         int alea = couleur.nextInt(2);
         
-        if (alea == 1) {
+        if (alea == 1) { // on fait commencer un des 2 joueurs aléatoirement.
             joueurCourant = listeJoueurs[0];
             System.out.println(listeJoueurs[0].Nom + " commence");
         } else {
@@ -109,24 +113,12 @@ public class Partie {
             while (action < 1 && action > 3) {
                 System.out.println("Tu sais pas compter ? 1,2,3 ... ");
                 action = sc.nextInt();
-            }
-            
-            if (action == 2) {
-                if (joueurCourant.nombreDesintegrateurs == 0) {
-                    System.out.println("Il n'y a plus de désintégrateur ...");
-                    
-                    while (action != 1 && action != 3) {
-                        System.out.println("Il faut choisir entre 1 et 3 !");
-                        action = sc.nextInt();
-                    }
-                }
             } 
-            switch (action) {
-                case 1 -> {
+                if (action == 1){
                     
                     boolean result;
                     System.out.println("Choisis une colonne ou tu veux jouer : ");
-                    int c = sc.nextInt() - 1;
+                    int c = sc.nextInt();
                     
                     while (c < 0 || c > 6) {
                         System.out.println("Bon, arrete ca et choisi une colonne entre 1 et 6 ...");
@@ -156,7 +148,14 @@ public class Partie {
                     grilleJeu.afficherGrilleSurConsole();
                 }
 
-                case 2 -> {
+                if (action == 2){
+                    if (joueurCourant.nombreDesintegrateurs == 0) {
+                        System.out.println("Il n'y a plus de désintégrateur ...");
+                    while (action != 1 && action != 3) {
+                        System.out.println("Il faut choisir entre 1 et 3 !");
+                        action = sc.nextInt();
+                    }
+                }
                     System.out.println("Quelle ligne veux-tu désintégrer ? ");
                     int l2 = sc.nextInt() - 1;
                     System.out.println("Quelle colonne jouer ? ");
@@ -176,7 +175,7 @@ public class Partie {
                     System.out.println("Nombre de désintégrateur : " + joueurCourant.nombreDesintegrateurs + "du " + joueurCourant);
                 }
 
-                case 3 -> {
+                if (action == 3){
                     System.out.println("Quelle ligne jouer ? ");
                     int l3 = sc.nextInt() - 1;
                     System.out.println("Quelle colonne jouer ? ");
@@ -207,10 +206,7 @@ public class Partie {
                 System.out.println("Tour suivant :" + joueurCourant.Nom);
                 System.out.println("Nombre de jeton de " + joueurCourant.Nom + " est : " + joueurCourant.nbj);
                 System.out.println("Nombre de désintégrateur de " + joueurCourant.Nom + " est : " + joueurCourant.nombreDesintegrateurs);
-            }
-
-        }
-        System.out.println(joueurCourant.Nom + " est tellement fort ! La partie se termine ... ");
+        }        System.out.println(joueurCourant.Nom + " est tellement fort ! La partie se termine ... ");
     } 
     
 }

@@ -8,6 +8,8 @@ public class SP4_console_AVRIL_Alexandre {
         //Jeton test = new Jeton ("Jaune"); // Test de la classe Jeton.
         //System.out.println(test.lireCouleur()); // bon affichage de la couleur J ou R du jeton dans la console.
         
+        // création de 2 joueurs de bases pour pouvoir accéder aux méthodes 
+        // de la classe "Partie".
         Joueur J1 = new Joueur("Poutine");
         Joueur J2 = new Joueur("Macron");
         
