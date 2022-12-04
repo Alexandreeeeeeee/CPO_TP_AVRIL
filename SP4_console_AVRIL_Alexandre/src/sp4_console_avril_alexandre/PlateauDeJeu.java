@@ -37,10 +37,18 @@ public boolean ajouterJetonDansColonne(Jeton j, int c ){
         return true;
     }
    
-    public void viderGrille (){ // problème de redistribution des jetons aux joueurs 
+    public void viderGrille (Joueur j1, Joueur j2){  
         for (int l = 0; l < 6; l++) {
             for (int c = 0; c < 7; c++) {
-                Grille[l][c] = null;  
+                Jeton jp = Grille[l][c].recupererJeton();
+                if (jp != null) {
+                    if ("rouge".equals(jp.lireCouleur())) {
+                        j1.ajouterJeton(jp);
+                    }
+                    else {
+                        j2.ajouterJeton(jp);
+                    }
+                }
             }
         }
     }
@@ -167,5 +175,68 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
         else {
             return false;
         }
+    }
+    
+    public void tasserColonne(int unecolonne) {
+        int lignes = 0;
+        while (Grille[lignes][unecolonne].jetonCourant != null) {
+                lignes++;
+            
+        }
+        for (int i = lignes; i < 5; i++) {
+            Grille[i][unecolonne].jetonCourant = Grille[i + 1][unecolonne].jetonCourant;
+            Grille[i+1][unecolonne].jetonCourant = null;
+        }
+        Grille[5][unecolonne].jetonCourant = null;
+    }
+    
+    public boolean colonneRemplie(int a) {
+        boolean res = true;
+        for (int i = 0; i<6; i++) {
+            if (Grille[i][a-1].presenceJeton() == false) {
+                res = false;
+                return res;
+            }
+        }
+        return res;
+    }
+    
+    public boolean presenceTrouNoir(int m, int z) {
+        return Grille[m-1][z-1].presenceTrouNoir() == true;
+    }
+    
+    public boolean placerTrouNoir(int uneligne, int unecolonne) {
+        return Grille[uneligne][unecolonne].placerTrouNoir();
+    }
+    
+    public boolean suppprimerTrouNoir(int x, int y) {
+        boolean res = false;
+        if (Grille[x][y].presenceTrouNoir() == true) {
+            Grille[x][y].supprimerTrouNoir();
+            res = true;
+            System.out.println("Trou noir, jeton absorbé");
+            return res;
+        }
+        return res;
+    }
+    
+    public boolean placerDesintegrateur(int uneligne, int unecolonne) {
+        return Grille[uneligne][unecolonne].placerDesintegrateur();
+    }
+    
+    public boolean supprimerDesintegrateur(int uneligne, int unecolonne) {
+        return Grille[uneligne][unecolonne].supprimerDesintegrateur();
+    }
+
+    public boolean précenseDesintegrateur(int uneligne, int unecolonne) {
+        return Grille[uneligne][unecolonne].presenceDesintegrateur();
+    }
+
+    public boolean supprimerJeton(int uneligne, int unecolonne) {
+        return Grille[uneligne][unecolonne].supprimerJeton();
+    }
+
+    public Jeton recupererJeton(int uneligne, int unecolonne) {
+        return Grille[uneligne][unecolonne].recupererJeton();
     }
 }
