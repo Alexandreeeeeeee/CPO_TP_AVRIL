@@ -103,6 +103,7 @@ public class Partie {
         
         while ((grilleJeu.etreGagnantePourCouleur(J1) == false) && (grilleJeu.grilleRemplie() == false) && (grilleJeu.etreGagnantePourCouleur(J2) == false)) {
             // tant que personne gagne la partie on fait cette boucle.
+            System.out.println("\n\n ---------------------"); // purement ésthétique...
             grilleJeu.afficherGrilleSurConsole();
             System.out.println("\n\n(1) Pour poser un jeton ?"); // Petit menu d'action pour les joueurs.
             System.out.println("(2) Pour désintégrer un jeton");
@@ -120,13 +121,12 @@ public class Partie {
                     
                     boolean result;
                     System.out.println("Choisis une colonne ou tu veux jouer : ");
-                    int c = sc.nextInt();
+                    int c = sc.nextInt()-1; // -1 important pour pouvoir mettre le jeton dans la bonne colonne.
                     
                     while (c < 0 || c > 6) { // "||" pour un "ou". //
                         System.out.println("Bon, arrete ca et choisi une colonne entre 1 et 6 ...");
-                        c = sc.nextInt();
+                        c = sc.nextInt()-1; // -1 important pour pouvoir mettre le jeton dans la bonne colonne.
                     }
-                    joueurCourant.nbj--;
                     int i = 0;
                     
                     while (grilleJeu.Grille[i][c].jetonCourant != null) {
@@ -146,7 +146,8 @@ public class Partie {
                         System.out.println("La colonne est pleine, choisi-en une autre");
                         c = sc.nextInt() - 1;
                         result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
-                    }                
+                    } 
+                    System.out.println("\n");
                     grilleJeu.afficherGrilleSurConsole();
                 }
 
