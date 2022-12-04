@@ -127,6 +127,7 @@ public class Partie {
                         System.out.println("Bon, arrete ca et choisi une colonne entre 1 et 6 ...");
                         c = sc.nextInt()-1; // -1 important pour pouvoir mettre le jeton dans la bonne colonne.
                     }
+                    //joueurCourant.nbj--;
                     int i = 0;
                     
                     while (grilleJeu.Grille[i][c].jetonCourant != null) {

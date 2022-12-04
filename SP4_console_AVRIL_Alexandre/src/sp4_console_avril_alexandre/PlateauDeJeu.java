@@ -15,15 +15,15 @@ public class PlateauDeJeu {
     
 // ajout d'un jeton dans la colonne que le joueur rentre. 
          
-public boolean ajouterJetonDansColonne(Jeton j, int c ){
+public boolean ajouterJetonDansColonne(Jeton j, int a) {
         for (int i = 0; i<6; i++) {
-            if (Grille[i][c].presenceJeton() == false) {
-                Grille[i][c].affecterJeton(j);
-               return true;
+            if (Grille[i][a].presenceJeton() == false) {
+                Grille[i][a].affecterJeton(j);
+                return true;
             }
         }
         return false;
-}
+    }
 
 // 2 méthodes qui gèrent le statut de la grille de jeux.
 
@@ -226,7 +226,7 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
         if (Grille[x][y].presenceTrouNoir() == true) {
             Grille[x][y].supprimerTrouNoir();
             res = true;
-            System.out.println("Votre jeton à été absorbé par un Trou noir !"); // message dans la console.
+            System.out.println("Votre jeton à été absorbé par un Trou noir !"); // message dans la console
             return res;
         }
         return res;
