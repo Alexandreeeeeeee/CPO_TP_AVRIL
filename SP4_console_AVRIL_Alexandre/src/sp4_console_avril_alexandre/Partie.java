@@ -87,5 +87,129 @@ public class Partie {
                 i--;
             }
         }
-    }      
+    }
+    
+   public void débuterPartie() {
+        
+        initialiserPartie();
+        String J1 = listeJoueurs[0].toString();
+        String J2 = listeJoueurs[0].toString();
+        
+        while ((grilleJeu.etreGagnantePourCouleur(J1) == false) && (grilleJeu.grilleRemplie() == false) && (grilleJeu.etreGagnantePourCouleur(J2) == false)) {
+
+            grilleJeu.afficherGrilleSurConsole();
+            System.out.println("(1) Pour poser un jeton ?");
+            System.out.println("(2) Pour désintégrer un jeton");
+            System.out.println("(3) Pour récupérer un jeton");
+            
+            Scanner sc = new Scanner(System.in);
+            int action = sc.nextInt();
+            
+            while (action < 1 && action > 3) {
+                System.out.println("Tu sais pas compter ? 1,2,3 ... ");
+                action = sc.nextInt();
+            }
+            
+            if (action == 2) {
+                if (joueurCourant.nombreDesintegrateurs == 0) {
+                    System.out.println("Il n'y a plus de désintégrateur ...");
+                    
+                    while (action != 1 && action != 3) {
+                        System.out.println("Il faut choisir entre 1 et 3 !");
+                        action = sc.nextInt();
+                    }
+                }
+            } 
+            switch (action) {
+                case 1 -> {
+                    
+                    boolean result;
+                    System.out.println("Choisis une colonne ou tu veux jouer : ");
+                    int c = sc.nextInt() - 1;
+                    
+                    while (c < 0 || c > 6) {
+                        System.out.println("Bon, arrete ca et choisi une colonne entre 1 et 6 ...");
+                        c = sc.nextInt() - 1;
+                    }
+                    joueurCourant.nbj--;
+                    int i = 0;
+                    
+                    while (grilleJeu.Grille[i][c].jetonCourant != null) {
+                        i++;
+                        if (i==5){
+                            break;
+                        }
+                    }
+                    if (grilleJeu.Grille[i][c].presenceDesintegrateur() == true) {
+                        grilleJeu.Grille[i][c].placerDesintegrateur();
+                        joueurCourant.nombreDesintegrateurs++;
+                    }
+                    
+                    result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
+                    
+                    while (result == false) {
+                        System.out.println("La colonne est pleine, choisi-en une autre");
+                        c = sc.nextInt() - 1;
+                        result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
+                    }                
+                    grilleJeu.afficherGrilleSurConsole();
+                }
+
+                case 2 -> {
+                    System.out.println("Quelle ligne veux-tu désintégrer ? ");
+                    int l2 = sc.nextInt() - 1;
+                    System.out.println("Quelle colonne jouer ? ");
+                    int c2 = sc.nextInt() - 1;
+                    while (grilleJeu.Grille[l2][c2].lireCouleurDuJeton() == joueurCourant.couleur) {
+                        System.out.println("C'est ton jeton ! ");
+                        System.out.println("Quelle ligne jouer ? ");
+                        l2 = sc.nextInt() - 1;
+                        System.out.println("Quelle colonne jouer ? ");
+                        c2 = sc.nextInt() - 1;
+                    }
+                    grilleJeu.supprimerJeton(l2, c2);
+                    grilleJeu.tasserColonne(c2);
+                    grilleJeu.afficherGrilleSurConsole();
+                    joueurCourant.nombreDesintegrateurs--;
+                    
+                    System.out.println("Nombre de désintégrateur : " + joueurCourant.nombreDesintegrateurs + "du " + joueurCourant);
+                }
+
+                case 3 -> {
+                    System.out.println("Quelle ligne jouer ? ");
+                    int l3 = sc.nextInt() - 1;
+                    System.out.println("Quelle colonne jouer ? ");
+                    int c3 = sc.nextInt() - 1;
+                    while (grilleJeu.Grille[l3][c3].lireCouleurDuJeton() != joueurCourant.couleur) {
+                        System.out.println("Ce n'es pas ton jeton ! ");
+                        System.out.println("Quelle ligne jouer ? ");
+                        l3 = sc.nextInt() - 1;
+                        System.out.println("Quelle colonne jouer ? ");
+                        c3 = sc.nextInt() - 1;
+                    }
+                    grilleJeu.supprimerJeton(l3, c3);
+                    grilleJeu.tasserColonne(c3);
+                    grilleJeu.afficherGrilleSurConsole();
+                }
+            }
+            
+            String J = joueurCourant.toString();
+            
+            if (grilleJeu.etreGagnantePourCouleur(J) == false) {
+                if (listeJoueurs[0] == joueurCourant) {
+                    joueurCourant = listeJoueurs[1];
+                    
+                } else {
+                    joueurCourant = listeJoueurs[0];
+                }
+
+                System.out.println("Tour suivant :" + joueurCourant.Nom);
+                System.out.println("Nombre de jeton de " + joueurCourant.Nom + " est : " + joueurCourant.nbj);
+                System.out.println("Nombre de désintégrateur de " + joueurCourant.Nom + " est : " + joueurCourant.nombreDesintegrateurs);
+            }
+
+        }
+        System.out.println(joueurCourant.Nom + " est tellement fort ! La partie se termine ... ");
+    } 
+    
 }
