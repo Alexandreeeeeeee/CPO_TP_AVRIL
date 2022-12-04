@@ -16,16 +16,8 @@ public class Jeton {
         if (couleur == "rouge") {
             return "R";
         }
-        if (couleur == "jaune") {
+        else {
             return "J";
-        }
-        else{
-        return null;
-        }
+        }    
     }
 }
-    
-
-
-
-

@@ -9,6 +9,7 @@ public class Joueur {
     ArrayList<Jeton> reserveJeton = new ArrayList<Jeton>();
     int nombreDesintegrateurs ; 
     int nombreJetonsRestants = reserveJeton.size();
+    int nbj;
     
     public Joueur(String a){
         Nom = a;
@@ -19,8 +20,8 @@ public class Joueur {
     }
       
     public int nombreDeJetons(){
-        int nb = reserveJeton.size(); 
-        return nb;
+        nbj = reserveJeton.size(); 
+        return nbj;
     }
     
     public void ajouterJeton(Jeton jeton){

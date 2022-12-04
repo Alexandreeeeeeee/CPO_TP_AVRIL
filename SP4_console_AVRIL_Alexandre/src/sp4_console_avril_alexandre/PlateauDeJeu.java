@@ -63,15 +63,22 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
                     System.out.print("|R|");
                 } 
                 else if ("Jaune".equals(Grille[l][c].lireCouleurDuJeton())) {
-                    System.out.print("|J|");
-                } 
+                    System.out.print("|J|");}
+                else if (Grille[l][c].presenceTrouNoir() == true) {
+                    System.out.print("[@]");}
+                else if (Grille[l][c].presenceDesintegrateur() == true){
+                    System.out.print("[D]");}
                 else {
                     System.out.print(" - ");
                 }
             }
-            if (l >= 0) {
+            if (l > 0) {
                 System.out.print("|\n|");
-            } else {
+            }
+            else if (l == 0){
+                System.out.print("|");
+            }
+            else {
                 System.out.println("");
             }
         }
@@ -165,9 +172,6 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
         return rep;
     }
     
-/*/ Cette fonction nous servira par la suite à afficher un message indiquiquant si la partie s'est soldée 
-    d'une égalité ou d'une victoire, mais de qui ?
-/*/
     public boolean etreGagnantePourCouleur(String r) {
         if (ligneGagnantePourCouleur(r) == true || colonneGagnantePourCouleur(r) == true || diagonaleMontanteGagnantePourCouleur(r) == true || diagonaleDescendanteGagnantePourCouleur(r) == true) {
             return true;

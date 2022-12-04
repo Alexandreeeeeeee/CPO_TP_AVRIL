@@ -6,10 +6,12 @@ import java.util.Scanner;
 
 public class Partie {
     
+    //ATTRIBUTS //
     Joueur[] listeJoueurs = new Joueur[2];
     Joueur joueurCourant = listeJoueurs[0];
     PlateauDeJeu grilleJeu = new PlateauDeJeu();
     
+    //CONSTRUCTEUR //
     public Partie(Joueur j1, Joueur j2){
         listeJoueurs[0] = j1;
         listeJoueurs[1] = j2;
@@ -91,14 +93,13 @@ public class Partie {
     
    public void débuterPartie() {
         
-        initialiserPartie();
         String J1 = listeJoueurs[0].toString();
         String J2 = listeJoueurs[0].toString();
         
         while ((grilleJeu.etreGagnantePourCouleur(J1) == false) && (grilleJeu.grilleRemplie() == false) && (grilleJeu.etreGagnantePourCouleur(J2) == false)) {
 
             grilleJeu.afficherGrilleSurConsole();
-            System.out.println("(1) Pour poser un jeton ?");
+            System.out.println("\n\n(1) Pour poser un jeton ?");
             System.out.println("(2) Pour désintégrer un jeton");
             System.out.println("(3) Pour récupérer un jeton");
             

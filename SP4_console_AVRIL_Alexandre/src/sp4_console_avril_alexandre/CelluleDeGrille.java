@@ -2,13 +2,13 @@ package sp4_console_avril_alexandre;
 
 public class CelluleDeGrille {
     Jeton jetonCourant;
-    private boolean avoirTrouNoir;
+    boolean avoirTrouNoir;
     boolean avoirDesintegrateur;
     
     public CelluleDeGrille () { // initialisation 
         jetonCourant = null;
-        avoirTrouNoir = false;
-        avoirDesintegrateur = false;
+        //avoirTrouNoir = false;
+        //avoirDesintegrateur = false;
     }
     
     public boolean presenceJeton() {
@@ -72,7 +72,7 @@ public boolean supprimerJeton() {
             return "D";
         }
         else {
-            return null;
+            return ".";
     }}
 
 // Rajouter de la gestion des Désintégrateurs et trous noirs.   
@@ -80,7 +80,6 @@ public boolean supprimerJeton() {
     public boolean placerTrouNoir(){
         if (avoirTrouNoir == false){
             avoirTrouNoir = true;
-            System.out.print("Un trou noir a été ajouté !");
             return true;
         }
         else{
@@ -109,10 +108,8 @@ public boolean supprimerJeton() {
 public boolean placerDesintegrateur() {
         if (avoirDesintegrateur == false) {
             avoirDesintegrateur = true;
-            System.out.println("Ajout du desintegrateur effectué");
             return true;
         } else {
-            System.out.println("desintegrateur deja present");
             return false;
         }
 
