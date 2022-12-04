@@ -177,23 +177,23 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
         }
     }
     
-    public void tasserColonne(int unecolonne) {
+    public void tasserColonne(int c) {
         int lignes = 0;
-        while (Grille[lignes][unecolonne].jetonCourant != null) {
+        while (Grille[lignes][c].jetonCourant != null) {
                 lignes++;
             
         }
         for (int i = lignes; i < 5; i++) {
-            Grille[i][unecolonne].jetonCourant = Grille[i + 1][unecolonne].jetonCourant;
-            Grille[i+1][unecolonne].jetonCourant = null;
+            Grille[i][c].jetonCourant = Grille[i + 1][c].jetonCourant;
+            Grille[i+1][c].jetonCourant = null;
         }
-        Grille[5][unecolonne].jetonCourant = null;
+        Grille[5][c].jetonCourant = null;
     }
     
-    public boolean colonneRemplie(int a) {
+    public boolean colonneRemplie(int x) {
         boolean res = true;
         for (int i = 0; i<6; i++) {
-            if (Grille[i][a-1].presenceJeton() == false) {
+            if (Grille[i][x-1].presenceJeton() == false) {
                 res = false;
                 return res;
             }
@@ -201,12 +201,12 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
         return res;
     }
     
-    public boolean presenceTrouNoir(int m, int z) {
-        return Grille[m-1][z-1].presenceTrouNoir() == true;
+    public boolean presenceTrouNoir(int x, int y) {
+        return Grille[x-1][y-1].presenceTrouNoir() == true;
     }
     
-    public boolean placerTrouNoir(int uneligne, int unecolonne) {
-        return Grille[uneligne][unecolonne].placerTrouNoir();
+    public boolean placerTrouNoir(int l, int c) {
+        return Grille[l][c].placerTrouNoir();
     }
     
     public boolean suppprimerTrouNoir(int x, int y) {
@@ -214,29 +214,29 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
         if (Grille[x][y].presenceTrouNoir() == true) {
             Grille[x][y].supprimerTrouNoir();
             res = true;
-            System.out.println("Trou noir, jeton absorbé");
+            System.out.println("Votre jeton à été absorbé par un Trou noir !");
             return res;
         }
         return res;
     }
     
-    public boolean placerDesintegrateur(int uneligne, int unecolonne) {
-        return Grille[uneligne][unecolonne].placerDesintegrateur();
+    public boolean placerDesintegrateur(int l, int c) {
+        return Grille[l][c].placerDesintegrateur();
     }
     
-    public boolean supprimerDesintegrateur(int uneligne, int unecolonne) {
-        return Grille[uneligne][unecolonne].supprimerDesintegrateur();
+    public boolean supprimerDesintegrateur(int l, int c) {
+        return Grille[l][c].supprimerDesintegrateur();
     }
 
-    public boolean précenseDesintegrateur(int uneligne, int unecolonne) {
-        return Grille[uneligne][unecolonne].presenceDesintegrateur();
+    public boolean précenseDesintegrateur(int l, int c) {
+        return Grille[l][c].presenceDesintegrateur();
     }
 
-    public boolean supprimerJeton(int uneligne, int unecolonne) {
-        return Grille[uneligne][unecolonne].supprimerJeton();
+    public boolean supprimerJeton(int l, int c) {
+        return Grille[l][c].supprimerJeton();
     }
 
-    public Jeton recupererJeton(int uneligne, int unecolonne) {
-        return Grille[uneligne][unecolonne].recupererJeton();
+    public Jeton recupererJeton(int l, int c) {
+        return Grille[l][c].recupererJeton();
     }
 }
