@@ -61,14 +61,14 @@ public class Partie {
             System.out.println(listeJoueurs[1].Nom + " commence");
         }
 
-        for (int i = 0; i < 21; i++) {
+        for (int i = 0; i < 21; i++) { // attribution des 21 jetons aux joueurs.
             Jeton unJeton = new Jeton(listeJoueurs[0].couleur);
             listeJoueurs[0].ajouterJeton(unJeton);
             Jeton unJeton2 = new Jeton(listeJoueurs[1].couleur);
             listeJoueurs[1].ajouterJeton(unJeton2);
 
         }
-        Random pos = new Random();
+        Random pos = new Random(); // position
         int cpt = 0;
         
         for (int i = 0; i < 5; i++) {
@@ -95,22 +95,24 @@ public class Partie {
         }
     }
     
+// Maintenant que le jeux est en place, on s'occupe de la gestion des actions des joueurs.
    public void débuterPartie() {
         
         String J1 = listeJoueurs[0].toString();
         String J2 = listeJoueurs[0].toString();
         
         while ((grilleJeu.etreGagnantePourCouleur(J1) == false) && (grilleJeu.grilleRemplie() == false) && (grilleJeu.etreGagnantePourCouleur(J2) == false)) {
-
+            // tant que personne gagne la partie on fait cette boucle.
             grilleJeu.afficherGrilleSurConsole();
-            System.out.println("\n\n(1) Pour poser un jeton ?");
+            System.out.println("\n\n(1) Pour poser un jeton ?"); // Petit menu d'action pour les joueurs.
             System.out.println("(2) Pour désintégrer un jeton");
             System.out.println("(3) Pour récupérer un jeton");
             
-            Scanner sc = new Scanner(System.in);
+            Scanner sc = new Scanner(System.in); // récupération de l'action du joueurs en cours.
             int action = sc.nextInt();
             
-            while (action < 1 && action > 3) {
+            while (action < 1 && action > 3) { // on ne continu pas la suite de la fonction tant que le joueurs
+                // n'a pas rentré le bon nombre. 
                 System.out.println("Tu sais pas compter ? 1,2,3 ... ");
                 action = sc.nextInt();
             } 
@@ -120,7 +122,7 @@ public class Partie {
                     System.out.println("Choisis une colonne ou tu veux jouer : ");
                     int c = sc.nextInt();
                     
-                    while (c < 0 || c > 6) {
+                    while (c < 0 || c > 6) { // "||" pour un "ou". //
                         System.out.println("Bon, arrete ca et choisi une colonne entre 1 et 6 ...");
                         c = sc.nextInt() - 1;
                     }
@@ -148,7 +150,7 @@ public class Partie {
                     grilleJeu.afficherGrilleSurConsole();
                 }
 
-                if (action == 2){
+                if (action == 2){ // partie qui gère les désintégrateurs.
                     if (joueurCourant.nombreDesintegrateurs == 0) {
                         System.out.println("Il n'y a plus de désintégrateur ...");
                     while (action != 1 && action != 3) {
@@ -172,10 +174,11 @@ public class Partie {
                     grilleJeu.afficherGrilleSurConsole();
                     joueurCourant.nombreDesintegrateurs--;
                     
-                    System.out.println("Nombre de désintégrateur : " + joueurCourant.nombreDesintegrateurs + "du " + joueurCourant);
+                    System.out.println("Nombre de désintégrateur : " + joueurCourant.nombreDesintegrateurs + "du " + joueurCourant); 
+                    // stat qui indique les pouvoirs du joueurs.
                 }
 
-                if (action == 3){
+                if (action == 3){ // récupération su jeton d'un joueur.
                     System.out.println("Quelle ligne jouer ? ");
                     int l3 = sc.nextInt() - 1;
                     System.out.println("Quelle colonne jouer ? ");
@@ -191,7 +194,7 @@ public class Partie {
                     grilleJeu.tasserColonne(c3);
                     grilleJeu.afficherGrilleSurConsole();
                 }
-            }
+            } // fin de la grosse boucle WHILE.
             
             String J = joueurCourant.toString();
             
@@ -206,7 +209,8 @@ public class Partie {
                 System.out.println("Tour suivant :" + joueurCourant.Nom);
                 System.out.println("Nombre de jeton de " + joueurCourant.Nom + " est : " + joueurCourant.nbj);
                 System.out.println("Nombre de désintégrateur de " + joueurCourant.Nom + " est : " + joueurCourant.nombreDesintegrateurs);
-        }        System.out.println(joueurCourant.Nom + " est tellement fort ! La partie se termine ... ");
+        } // Affichage du joueur gagnant.
+            System.out.println(joueurCourant.Nom + " est tellement fort ! La partie se termine ... ");
     } 
     
 }

@@ -4,6 +4,8 @@ package sp4_console_avril_alexandre;
 import java.util.ArrayList;
 
 public class Joueur {
+    
+    //ATTRIBUTS //
     String Nom;
     String couleur;
     ArrayList<Jeton> reserveJeton = new ArrayList<Jeton>();
@@ -11,6 +13,7 @@ public class Joueur {
     int nombreJetonsRestants = reserveJeton.size();
     int nbj;
     
+    //CONSTRUCTEUR //
     public Joueur(String a){
         Nom = a;
     }
@@ -25,7 +28,7 @@ public class Joueur {
     }
     
     public void ajouterJeton(Jeton jeton){
-        reserveJeton.add(jeton);
+        reserveJeton.add(jeton); // ajout de jeton à la collection.
     }
 
      public void obtenirDesintegrateur() {
@@ -45,7 +48,7 @@ public class Joueur {
     @Override
     
     public String toString() {
-        return this.Nom;
+        return this.Nom; // on retourne le nom du joueur
     }
     
 }
