@@ -142,6 +142,7 @@ public class Partie {
                     }
                     
                     result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
+                    ChangerJoueurCourant();
                     
                     while (result == false) {
                         System.out.println("La colonne est pleine, choisi-en une autre");
@@ -149,7 +150,6 @@ public class Partie {
                         result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
                     } 
                     System.out.println("\n");
-                    grilleJeu.afficherGrilleSurConsole();
                 }
 
                 if (action == 2){ // partie qui gère les désintégrateurs.
@@ -214,5 +214,13 @@ public class Partie {
         } // Affichage du joueur gagnant.
             System.out.println(joueurCourant.Nom + " est tellement fort ! La partie se termine ... ");
     } 
-    
+   
+   public void ChangerJoueurCourant() {
+       if (joueurCourant == listeJoueurs[0]) {
+            joueurCourant = listeJoueurs[1];
+        }
+        if (joueurCourant == listeJoueurs[1]) {
+            joueurCourant = listeJoueurs[0];
+        }  
+   }
 }
