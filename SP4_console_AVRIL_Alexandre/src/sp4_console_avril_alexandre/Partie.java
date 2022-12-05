@@ -98,10 +98,10 @@ public class Partie {
     
 // Maintenant que le jeux est en place, on s'occupe de la gestion des actions des joueurs.
    public void débuterPartie() {
-        String J1 = listeJoueurs[0].toString();
-        String J2 = listeJoueurs[1].toString();
+        Joueur J1 = listeJoueurs[0];
+        Joueur J2 = listeJoueurs[1];
         
-        while ((grilleJeu.etreGagnantePourCouleur(J1) == false) && (grilleJeu.grilleRemplie() == false) && (grilleJeu.etreGagnantePourCouleur(J2) == false)) {
+        while ((grilleJeu.etreGagnantePourCouleur(J1.couleur) == false) && (grilleJeu.grilleRemplie() == false) && (grilleJeu.etreGagnantePourCouleur(J2.couleur) == false)) {
             // tant que personne gagne la partie on fait cette boucle.
             System.out.println("---------------------"); // purement ésthétique...
             grilleJeu.afficherGrilleSurConsole();
