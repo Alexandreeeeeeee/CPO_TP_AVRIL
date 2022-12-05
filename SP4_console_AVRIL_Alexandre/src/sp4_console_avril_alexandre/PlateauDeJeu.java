@@ -18,9 +18,19 @@ public class PlateauDeJeu {
 public boolean ajouterJetonDansColonne(Jeton j, int c) {
         for (int i = 0; i<6; i++) {
             if (Grille[i][c].presenceJeton() == false) {
+                if (Grille[i][c].presenceDesintegrateur() == true && Grille[i][c].presenceTrouNoir() == true){
+                    System.out.println("\nPresence d'un désintégrateur et d'un trou noir, désintégrateur récupéré\n");
+                    Grille[i][c].supprimerDesintegrateur();
+                    Grille[i][c].supprimerTrouNoir();
+                    Grille[i][c].affecterJeton(j);
+                    Grille[i][c].supprimerJeton();
+                    return true;
+                }
                 if (Grille[i][c].presenceTrouNoir() == true){
                     System.out.println("\nPresence d'un trou noir, Jeton absorbe\n");
                     Grille[i][c].supprimerTrouNoir();
+                    Grille[i][c].affecterJeton(j);
+                    Grille[i][c].supprimerJeton();
                     return true;
                 }
                 if (Grille[i][c].presenceDesintegrateur() == true){
@@ -30,13 +40,7 @@ public boolean ajouterJetonDansColonne(Jeton j, int c) {
                     Grille[i][c].supprimerJeton();
                     return true;
                 }
-                if (Grille[i][c].presenceDesintegrateur() == true && Grille[i][c].presenceJeton() == false){
-                    System.out.println("\nPresence d'un désintégrateur et d'un trou noir, désintégrateur récupéré\n");
-                    Grille[i][c].supprimerDesintegrateur();
-                    Grille[i][c].supprimerTrouNoir();
-                    Grille[i][c].affecterJeton(j);
-                    Grille[i][c].supprimerJeton();
-                }
+
                 else {
                 Grille[i][c].affecterJeton(j);
                 return true;
