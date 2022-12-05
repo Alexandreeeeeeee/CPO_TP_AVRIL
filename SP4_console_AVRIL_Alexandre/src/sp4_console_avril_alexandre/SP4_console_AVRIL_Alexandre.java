@@ -16,16 +16,5 @@ public class SP4_console_AVRIL_Alexandre {
         Partie p = new Partie(J1,J2);
         
         p.initialiserPartie();
-        p.débuterPartie();
-        
-        PlateauDeJeu grille = new PlateauDeJeu();
-        boolean k = grille.etreGagnantePourCouleur("R");
-        
-        if (k ==true) {
-            System.out.println("Winner");
-        }
-        else {
-            System.out.println("looser");
-        }
-    }   
-}
+        p.débuterPartie();              
+}}

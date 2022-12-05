@@ -15,15 +15,30 @@ public class PlateauDeJeu {
     
 // ajout d'un jeton dans la colonne que le joueur rentre. 
          
-public boolean ajouterJetonDansColonne(Jeton j, int a) {
+public boolean ajouterJetonDansColonne(Jeton j, int c) {
         for (int i = 0; i<6; i++) {
-            if (Grille[i][a].presenceJeton() == false) {
-                Grille[i][a].affecterJeton(j);
+            if (Grille[i][c].presenceJeton() == false) {
+                if (Grille[i][c].presenceTrouNoir() == true){
+                    System.out.println("\nPresence d'un trou noir, Jeton absorbe\n");
+                    Grille[i][c].supprimerTrouNoir();
+                    return true;
+                }
+                if (Grille[i][c].presenceDesintegrateur() == true){
+                    System.out.println("\nPresence d'un désintégrateur, désintégrateur récupér\n");
+                    Grille[i][c].supprimerDesintegrateur();
+                    Grille[i][c].affecterJeton(j);
+                    Grille[i][c].supprimerJeton();
+                    return true;
+                }
+                
+                else {
+                Grille[i][c].affecterJeton(j);
                 return true;
             }
         }
-        return false;
     }
+        return false;
+}
 
 // 2 méthodes qui gèrent le statut de la grille de jeux.
 
