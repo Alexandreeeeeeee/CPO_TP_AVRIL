@@ -103,13 +103,12 @@ public class Partie {
         
         while ((grilleJeu.etreGagnantePourCouleur(J1) == false) && (grilleJeu.grilleRemplie() == false) && (grilleJeu.etreGagnantePourCouleur(J2) == false)) {
             // tant que personne gagne la partie on fait cette boucle.
-            System.out.println("\n\n ---------------------"); // purement ésthétique...
+            System.out.println("---------------------"); // purement ésthétique...
             grilleJeu.afficherGrilleSurConsole();
-            ChangerJoueurCourant();
             System.out.println("\n\n(1) Pour poser un jeton ?"); // Petit menu d'action pour les joueurs.
             System.out.println("(2) Pour désintégrer un jeton");
             System.out.println("(3) Pour récupérer un jeton");
-
+            ChangerJoueurCourant();
             Scanner sc = new Scanner(System.in); // récupération de l'action du joueurs en cours.
             int action = sc.nextInt();
             
@@ -141,6 +140,7 @@ public class Partie {
                     }
                     
                     result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
+                    
                     while (result == false) {
                         System.out.println("La colonne est pleine, choisi-en une autre");
                         c = sc.nextInt() - 1;
@@ -217,7 +217,7 @@ public class Partie {
        if (joueurCourant == listeJoueurs[0]) {
             joueurCourant = listeJoueurs[1];
         }
-        if (joueurCourant == listeJoueurs[1]) {
+        else{
             joueurCourant = listeJoueurs[0];
         }  
    }

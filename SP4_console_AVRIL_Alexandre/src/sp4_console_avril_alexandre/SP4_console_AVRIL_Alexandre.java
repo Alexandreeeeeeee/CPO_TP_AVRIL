@@ -17,6 +17,5 @@ public class SP4_console_AVRIL_Alexandre {
         
         p.initialiserPartie();
         p.débuterPartie();
-    } 
-    
+    }   
 }
