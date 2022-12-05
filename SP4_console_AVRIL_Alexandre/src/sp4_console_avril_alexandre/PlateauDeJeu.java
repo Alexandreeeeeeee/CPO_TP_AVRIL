@@ -24,13 +24,19 @@ public boolean ajouterJetonDansColonne(Jeton j, int c) {
                     return true;
                 }
                 if (Grille[i][c].presenceDesintegrateur() == true){
-                    System.out.println("\nPresence d'un désintégrateur, désintégrateur récupér\n");
+                    System.out.println("\nPresence d'un désintégrateur, désintégrateur récupéré\n");
                     Grille[i][c].supprimerDesintegrateur();
                     Grille[i][c].affecterJeton(j);
                     Grille[i][c].supprimerJeton();
                     return true;
                 }
-                
+                if (Grille[i][c].presenceDesintegrateur() == true && Grille[i][c].presenceJeton() == false){
+                    System.out.println("\nPresence d'un désintégrateur et d'un trou noir, désintégrateur récupéré\n");
+                    Grille[i][c].supprimerDesintegrateur();
+                    Grille[i][c].supprimerTrouNoir();
+                    Grille[i][c].affecterJeton(j);
+                    Grille[i][c].supprimerJeton();
+                }
                 else {
                 Grille[i][c].affecterJeton(j);
                 return true;
