@@ -99,16 +99,17 @@ public class Partie {
 // Maintenant que le jeux est en place, on s'occupe de la gestion des actions des joueurs.
    public void débuterPartie() {
         String J1 = listeJoueurs[0].toString();
-        String J2 = listeJoueurs[0].toString();
+        String J2 = listeJoueurs[1].toString();
         
         while ((grilleJeu.etreGagnantePourCouleur(J1) == false) && (grilleJeu.grilleRemplie() == false) && (grilleJeu.etreGagnantePourCouleur(J2) == false)) {
             // tant que personne gagne la partie on fait cette boucle.
             System.out.println("\n\n ---------------------"); // purement ésthétique...
             grilleJeu.afficherGrilleSurConsole();
+            ChangerJoueurCourant();
             System.out.println("\n\n(1) Pour poser un jeton ?"); // Petit menu d'action pour les joueurs.
             System.out.println("(2) Pour désintégrer un jeton");
             System.out.println("(3) Pour récupérer un jeton");
-            
+
             Scanner sc = new Scanner(System.in); // récupération de l'action du joueurs en cours.
             int action = sc.nextInt();
             
@@ -118,32 +119,28 @@ public class Partie {
                 action = sc.nextInt();
             } 
                 if (action == 1){
-                    
                     boolean result;
                     System.out.println("Choisis une colonne ou tu veux jouer : ");
                     int c = sc.nextInt()-1; // -1 important pour pouvoir mettre le jeton dans la bonne colonne.
-                    
-                    while (c < 0 || c > 6) { // "||" pour un "ou". //
+                    while (c < 0 || c > 7) { // "||" pour un "ou". //
                         System.out.println("Bon, arrete ca et choisi une colonne entre 1 et 6 ...");
                         c = sc.nextInt()-1; // -1 important pour pouvoir mettre le jeton dans la bonne colonne.
                     }
                     //joueurCourant.nbj--;
                     int i = 0;
-                    
-                    while (grilleJeu.Grille[i][c].jetonCourant != null) {
+                    while (grilleJeu.Grille[i][c].jetonCourant != null) { // passer à la colonne du dessus.
                         i++;
                         if (i==5){
                             break;
                         }
                     }
+                    
                     if (grilleJeu.Grille[i][c].presenceDesintegrateur() == true) {
                         grilleJeu.Grille[i][c].placerDesintegrateur();
                         joueurCourant.nombreDesintegrateurs++;
                     }
                     
                     result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
-                    ChangerJoueurCourant();
-                    
                     while (result == false) {
                         System.out.println("La colonne est pleine, choisi-en une autre");
                         c = sc.nextInt() - 1;
@@ -215,7 +212,8 @@ public class Partie {
             System.out.println(joueurCourant.Nom + " est tellement fort ! La partie se termine ... ");
     } 
    
-   public void ChangerJoueurCourant() {
+   public void ChangerJoueurCourant() { // fonction qui permet de changer de joueur à chaque tours,
+       // et d'afficher les jetons Rouges et Jaunes sur la grille de jeu de la console.
        if (joueurCourant == listeJoueurs[0]) {
             joueurCourant = listeJoueurs[1];
         }
