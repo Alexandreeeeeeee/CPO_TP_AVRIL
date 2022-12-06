@@ -13,10 +13,18 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Joueur[] listeJoueurs = new Joueur[2];
     Joueur joueurCourant;
     PlateauDeJeu grilleJeu = new PlateauDeJeu();
+
     public fenetreDeJeu() {
         initComponents();
         panneau_info_joueurs.setVisible(false);
         panneau_info_partie.setVisible(false);
+
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 0; i < 7; i++) {
+                CelluleGraphique cellGraph = new CelluleGraphique();
+                panneau_grille.add(cellGraph);
+            }
+        }
     }
 
     /**
@@ -288,4 +296,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_info_joueurs;
     private javax.swing.JPanel panneau_info_partie;
     // End of variables declaration//GEN-END:variables
+
+
 }
