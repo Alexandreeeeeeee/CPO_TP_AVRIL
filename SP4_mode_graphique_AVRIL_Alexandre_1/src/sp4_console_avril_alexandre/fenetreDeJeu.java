@@ -20,8 +20,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_partie.setVisible(false);
 
         for (int i = 5; i >= 0; i--) {
-            for (int j = 0; i < 7; i++) {
-                CelluleGraphique cellGraph = new CelluleGraphique();
+            for (int j = 0; j < 7; j++) {
+                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Grille[i][j]);
                 panneau_grille.add(cellGraph);
             }
         }
