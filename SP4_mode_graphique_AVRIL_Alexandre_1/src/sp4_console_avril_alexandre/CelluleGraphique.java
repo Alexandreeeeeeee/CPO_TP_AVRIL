@@ -4,10 +4,12 @@
  */
 package sp4_console_avril_alexandre;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author alexa
  */
-public class CelluleGraphique {
-    
+public class CelluleGraphique extends JButton {
+    CelluleDeGrille celluleAssociee;
 }
