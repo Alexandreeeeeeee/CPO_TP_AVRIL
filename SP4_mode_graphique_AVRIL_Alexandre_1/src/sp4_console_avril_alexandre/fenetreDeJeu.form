@@ -129,7 +129,7 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lbl_j1_nom">
+        <Component class="javax.swing.JLabel" name="lbl_j1_nom1">
           <Properties>
             <Property name="text" type="java.lang.String" value="nomj1"/>
           </Properties>
@@ -149,7 +149,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_j1_couleur">
+        <Component class="javax.swing.JLabel" name="lbl_j1_couleur1">
           <Properties>
             <Property name="text" type="java.lang.String" value="couleurj1 "/>
           </Properties>
@@ -159,7 +159,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_j1_desint">
+        <Component class="javax.swing.JLabel" name="lbl_j1_desint1">
           <Properties>
             <Property name="text" type="java.lang.String" value="nbdesj1"/>
           </Properties>
@@ -196,7 +196,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_j2_couleur">
+        <Component class="javax.swing.JLabel" name="lbl_j2_couleur2">
           <Properties>
             <Property name="text" type="java.lang.String" value="couleurj2 "/>
           </Properties>
@@ -206,7 +206,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_j2_desint">
+        <Component class="javax.swing.JLabel" name="lbl_j2_desint2">
           <Properties>
             <Property name="text" type="java.lang.String" value="nbdesj2"/>
           </Properties>
@@ -259,7 +259,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_j2_nom1">
+        <Component class="javax.swing.JLabel" name="lbl_j2_nom2">
           <Properties>
             <Property name="text" type="java.lang.String" value="nomj2"/>
           </Properties>
@@ -326,7 +326,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="60" width="320" height="-1"/>
+              <AbsoluteConstraints x="10" y="50" width="330" height="100"/>
             </Constraint>
           </Constraints>
 
