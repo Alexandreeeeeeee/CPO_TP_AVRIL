@@ -49,8 +49,13 @@ public class Partie {
         
         grilleJeu = new PlateauDeJeu(); // on créé une grille de jeu
         Random r = new Random();
-
+        
         attribuerCouleurAuxJoueurs();
+        
+        System.out.println(j1.Nom + " est de couleur " +j1.couleur); // affichage des couleurs des joueurs.
+        System.out.println(j2.Nom + " est de couleur " +j2.couleur);
+        
+        
         Random couleur = new Random();
         int alea = couleur.nextInt(2);
         

@@ -111,6 +111,7 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
                 System.out.println("");
             }
         }
+        //System.out.println("\n 1  2  3  4  5  6  7");
     }
   
   // verification s'il n'y a pas les jetons d'un joueur, si oui on récupere sa couleur  vec "lireCouleurDuJeton".
