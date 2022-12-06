@@ -139,13 +139,11 @@ public class Partie {
                         joueurCourant.nombreDesintegrateurs++;
                     }
                     
-                    result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
-                    
+                    result = grilleJeu.ajouterJetonDansColonne(joueurCourant,c);                    
                     while (result == false) {
                         System.out.println("La colonne est pleine, choisi-en une autre");
                         c = sc.nextInt() - 1;
-                        result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
-                    } 
+                    result = grilleJeu.ajouterJetonDansColonne(joueurCourant,c);                    } 
                     System.out.println("\n");
                 }
 
