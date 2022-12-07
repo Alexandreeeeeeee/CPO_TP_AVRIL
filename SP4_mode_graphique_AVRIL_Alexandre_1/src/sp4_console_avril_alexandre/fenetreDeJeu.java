@@ -25,6 +25,21 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.Grille[i][j]);
+
+                cellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        CelluleDeGrille c = cellGraph.celluleAssociee;
+                        if (c.jetonCourant == null) return ;
+                        
+                        if (c.jetonCourant.couleur.equals(joueurCourant.couleur)){
+                            message.setText("le joueur " + joueurCourant.Nom + " récupère un de ses jetons");
+                        }
+                        else{
+                            message.setText("le joueur " + joueurCourant.Nom + " veut désintégrer un jeton");
+                        }              
+                    }
+                });
+
                 panneau_grille.add(cellGraph);
             }
         }
@@ -241,7 +256,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
         // TODO add your handling code here:
-                jouerDansColonne(1);
+        jouerDansColonne(1);
         if (grilleJeu.colonneRemplie(1) == true) {
             btn_col_1.setEnabled(false);
         }
@@ -275,7 +290,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             btn_col_0.setEnabled(false);
         }
         joueurSuivant();
-        
+
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
@@ -285,7 +300,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             btn_col_3.setEnabled(false);
         }
         joueurSuivant();
-        
+
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
@@ -295,7 +310,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             btn_col_4.setEnabled(false);
         }
         joueurSuivant();
-        
+
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
@@ -305,7 +320,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             btn_col_5.setEnabled(false);
         }
         joueurSuivant();
-        
+
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
@@ -315,7 +330,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             btn_col_6.setEnabled(false);
         }
         joueurSuivant();
-        
+
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
     public void joueurSuivant() {
@@ -332,24 +347,27 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         //joueurCourant.nbj--; 
         result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), indice_colonne);
         panneau_grille.repaint();
-        
-        lbl_j1_desint1.setText(listeJoueurs[0].nombreDesintegrateurs+""); // pb d'ajout du nombre de désint.
-        lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs+"");
-        
+
+        lbl_j1_desint1.setText(listeJoueurs[0].nombreDesintegrateurs + ""); // pb d'ajout du nombre de désint.
+        lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs + "");
+
         boolean vict_j1 = grilleJeu.etreGagnantePourCouleur("Rouge");
         boolean vict_j2 = grilleJeu.etreGagnantePourCouleur("Jaune");
-        
-        if(vict_j1 && ! vict_j2){
-            message.setText("Victoire de "+listeJoueurs[0].Nom);
+
+        if (vict_j1 && !vict_j2) {
+            message.setText("Victoire de " + listeJoueurs[0].Nom);
         }
-        if(vict_j2 && ! vict_j1){
-            message.setText("Victoire de "+listeJoueurs[1].Nom);
+        if (vict_j2 && !vict_j1) {
+            message.setText("Victoire de " + listeJoueurs[1].Nom);
         }
-        if(vict_j1 && vict_j2){
-            if(joueurCourant == listeJoueurs[0]) message.setText("Victoire de "+listeJoueurs[1].Nom);
-            else message.setText("Victoire de "+listeJoueurs[0].Nom + " faute de jeu de l'autre joueur");
+        if (vict_j1 && vict_j2) {
+            if (joueurCourant == listeJoueurs[0]) {
+                message.setText("Victoire de " + listeJoueurs[1].Nom);
+            } else {
+                message.setText("Victoire de " + listeJoueurs[0].Nom + " faute de jeu de l'autre joueur");
+            }
         }
-        
+
         if (result == true) {
             return true;
         } else {
