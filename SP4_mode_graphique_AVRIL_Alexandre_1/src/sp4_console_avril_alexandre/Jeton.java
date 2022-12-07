@@ -2,7 +2,7 @@ package sp4_console_avril_alexandre;
 
 public class Jeton {
     
-    private String couleur ; //déclaration attribut couleur en privé.
+    String couleur ; //déclaration attribut couleur en privé.
     
     public Jeton(String unecouleur){
         couleur = unecouleur; // affectation de la couleur au jeton.
