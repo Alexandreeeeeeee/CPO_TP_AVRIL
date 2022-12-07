@@ -300,10 +300,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     public boolean jouerDansColonne(int indice_colonne){
         boolean result;
         //joueurCourant.nbj--; 
-            result = grilleJeu.ajouterJetonDansColonne(joueurCourant, indice_colonne);
+            result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), indice_colonne);
             panneau_grille.repaint();
             if (result == true )return true;         
-            else return false;                        
+            else return false;                         
         }    
     /**
      * @param args the command line arguments

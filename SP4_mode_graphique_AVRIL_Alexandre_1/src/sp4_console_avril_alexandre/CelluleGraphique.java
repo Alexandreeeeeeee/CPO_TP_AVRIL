@@ -41,7 +41,7 @@ public class CelluleGraphique extends JButton {
                 case "rouge":
                     setIcon(img_jetonRouge);
                     break;
-                case " jaune":
+                case "jaune":
                     setIcon(img_jetonJaune);
                     break;
             }
