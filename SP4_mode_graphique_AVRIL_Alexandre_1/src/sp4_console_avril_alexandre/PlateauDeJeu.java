@@ -23,6 +23,7 @@ public class PlateauDeJeu {
                     Grille[i][c].supprimerTrouNoir();
                     Grille[i][c].affecterJeton(j);
                     Grille[i][c].supprimerJeton();
+                    
                     return true;
                 }
                 if (Grille[i][c].presenceTrouNoir() == true){ // si on en a un seul.

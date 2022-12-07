@@ -9,6 +9,7 @@ public class Joueur {
     String Nom;
     String couleur;
     ArrayList<Jeton> reserveJeton = new ArrayList<Jeton>();
+    int x;
     int nombreDesintegrateurs ; 
     int nombreJetonsRestants = reserveJeton.size();
     int nbj;
