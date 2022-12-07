@@ -127,9 +127,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         panneau_grille.setBackground(new java.awt.Color(0, 51, 51));
         panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
-        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 672, 580));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 672, 580));
 
-        panneau_creation_partie.setBackground(new java.awt.Color(255, 0, 51));
+        panneau_creation_partie.setBackground(new java.awt.Color(51, 153, 255));
         panneau_creation_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nom joueur 2 :");
@@ -154,20 +154,23 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
         panneau_creation_partie.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
 
-        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 350, 130));
+        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 350, 130));
 
-        panneau_info_joueurs.setBackground(new java.awt.Color(255, 0, 51));
+        panneau_info_joueurs.setBackground(new java.awt.Color(255, 255, 255));
         panneau_info_joueurs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lbl_j1_nom1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_j1_nom1.setText("nomj1");
         panneau_info_joueurs.add(lbl_j1_nom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         jLabel5.setText("joueur 1 :");
         panneau_info_joueurs.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
+        lbl_j1_couleur1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_j1_couleur1.setText("couleurj1 ");
         panneau_info_joueurs.add(lbl_j1_couleur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 
+        lbl_j1_desint1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_j1_desint1.setText("nbdesj1");
         panneau_info_joueurs.add(lbl_j1_desint1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
 
@@ -178,9 +181,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_joueurs.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
         panneau_info_joueurs.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 330, 10));
 
+        lbl_j2_couleur2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_j2_couleur2.setText("couleurj2 ");
         panneau_info_joueurs.add(lbl_j2_couleur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
+        lbl_j2_desint2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_j2_desint2.setText("nbdesj2");
         panneau_info_joueurs.add(lbl_j2_desint2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
@@ -190,38 +195,40 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel13.setText("désintegrateurs :");
         panneau_info_joueurs.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 20)); // NOI18N
         jLabel4.setText("Infos joueurs : ");
-        panneau_info_joueurs.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        panneau_info_joueurs.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel10.setText("joueur 2 :");
         panneau_info_joueurs.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
+        lbl_j2_nom2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_j2_nom2.setText("nomj2");
         panneau_info_joueurs.add(lbl_j2_nom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
 
-        getContentPane().add(panneau_info_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 350, 280));
+        getContentPane().add(panneau_info_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 170, 350, 280));
 
-        panneau_info_partie.setBackground(new java.awt.Color(255, 0, 51));
+        panneau_info_partie.setBackground(new java.awt.Color(255, 102, 102));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 20)); // NOI18N
         jLabel3.setText("Infos jeu : ");
-        panneau_info_partie.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        panneau_info_partie.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel7.setText("joueur courant :");
-        panneau_info_partie.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jLabel7.setText("Au tour de :");
+        panneau_info_partie.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 80, -1));
 
+        lbl_jcourant.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_jcourant.setText("nomjoueur");
-        panneau_info_partie.add(lbl_jcourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+        panneau_info_partie.add(lbl_jcourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
 
         message.setColumns(20);
         message.setRows(5);
         jScrollPane1.setViewportView(message);
 
-        panneau_info_partie.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 330, 100));
+        panneau_info_partie.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 330, 100));
 
-        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 350, 160));
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 470, 350, 190));
 
         btn_col_0.setText("1");
         btn_col_0.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +236,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_col_0ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        getContentPane().add(btn_col_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 50, -1, -1));
 
         btn_col_1.setText("2");
         btn_col_1.addActionListener(new java.awt.event.ActionListener() {
@@ -237,7 +244,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_col_1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 50, -1, -1));
+        getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
         btn_col_2.setText("3");
         btn_col_2.addActionListener(new java.awt.event.ActionListener() {
@@ -245,7 +252,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_col_2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, -1, -1));
+        getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 50, -1, -1));
 
         btn_col_3.setText("4");
         btn_col_3.addActionListener(new java.awt.event.ActionListener() {
@@ -253,7 +260,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_col_3ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 50, -1, -1));
+        getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 50, -1, -1));
 
         btn_col_4.setText("5");
         btn_col_4.addActionListener(new java.awt.event.ActionListener() {
@@ -261,7 +268,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_col_4ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 50, -1, -1));
+        getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(538, 50, -1, -1));
 
         btn_col_5.setText("6");
         btn_col_5.addActionListener(new java.awt.event.ActionListener() {
@@ -269,7 +276,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_col_5ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
+        getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(634, 50, -1, -1));
 
         btn_col_6.setText("7");
         btn_col_6.addActionListener(new java.awt.event.ActionListener() {
@@ -277,9 +284,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_col_6ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(626, 50, -1, -1));
+        getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 50, -1, -1));
 
-        setBounds(0, 0, 1069, 700);
+        setBounds(0, 0, 1322, 1068);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nom_j2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_j2ActionPerformed
