@@ -228,14 +228,14 @@ public static final String TEST = "\u001B[30m"; // création d'un fond noir qui 
     }
     
     public boolean colonneRemplie(int x) {
-        boolean res = true;
+
         for (int i = 0; i<6; i++) {
-            if (Grille[i][x-1].presenceJeton() == false) {
-                res = false;
-                return res;
+            if (Grille[i][x].presenceJeton() == false) {
+
+                return false;
             }
         }
-        return res;
+        return true;
     }
     
  // partie qui gère les trous noirs et désintégrateurs.
