@@ -29,14 +29,46 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 cellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         CelluleDeGrille c = cellGraph.celluleAssociee;
-                        if (c.jetonCourant == null) return ;
-                        
-                        if (c.jetonCourant.couleur.equals(joueurCourant.couleur)){
-                            message.setText("le joueur " + joueurCourant.Nom + " récupère un de ses jetons");
+                        if (c.jetonCourant == null) {
+                            return;
                         }
-                        else{
-                            message.setText("le joueur " + joueurCourant.Nom + " veut désintégrer un jeton");
-                        }              
+
+                        if (c.jetonCourant.couleur.equals(joueurCourant.couleur)) {
+                            message.setText("le joueur " + joueurCourant.Nom + " récupère un de ses jetons");
+                            Jeton jrecup = c.recupererJeton();
+                            joueurCourant.ajouterJeton(jrecup);
+                            joueurSuivant();
+                        } else {
+                            if (joueurCourant.nombreDesintegrateurs > 0) {
+                                message.setText("le joueur " + joueurCourant.Nom + " désintégre un jeton");
+                                c.supprimerJeton();
+                                joueurCourant.utiliserDesintegrateur();
+                                joueurSuivant();
+                            } else {
+                                return;
+                            }
+                        }
+                        grilleJeu.tasserGrille();
+                        panneau_grille.repaint(); // on rafraichit le panneau !
+                        lbl_j1_desint1.setText(listeJoueurs[0].nombreDesintegrateurs + ""); // pb d'ajout du nombre de désint.
+                        lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs + "");
+
+                        boolean vict_j1 = grilleJeu.etreGagnantePourCouleur("Rouge");
+                        boolean vict_j2 = grilleJeu.etreGagnantePourCouleur("Jaune");
+
+                        if (vict_j1 && !vict_j2) {
+                            message.setText("Victoire de " + listeJoueurs[0].Nom);
+                        }
+                        if (vict_j2 && !vict_j1) {
+                            message.setText("Victoire de " + listeJoueurs[1].Nom);
+                        }
+                        if (vict_j1 && vict_j2) {
+                            if (joueurCourant == listeJoueurs[0]) {
+                                message.setText("Victoire de " + listeJoueurs[1].Nom);
+                            } else {
+                                message.setText("Victoire de " + listeJoueurs[0].Nom + " faute de jeu de l'autre joueur");
+                            }
+                        }
                     }
                 });
 

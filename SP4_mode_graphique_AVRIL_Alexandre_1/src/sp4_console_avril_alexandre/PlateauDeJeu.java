@@ -212,6 +212,12 @@ public class PlateauDeJeu {
         }
         Grille[5][c].jetonCourant = null;
     }
+    
+        public void tasserGrille(){
+        for(int i = 0; i<7; i ++){
+            tasserColonne(i);
+        }
+    }
 
     public boolean colonneRemplie(int x) {
         for (int i = 0; i < 6; i++) {

@@ -146,5 +146,6 @@ public boolean placerDesintegrateur() {
             System.out.println("Pas de Trou Noir dans cette cellule");
             return false;
         }
-    }   
+    }
+    
 }
