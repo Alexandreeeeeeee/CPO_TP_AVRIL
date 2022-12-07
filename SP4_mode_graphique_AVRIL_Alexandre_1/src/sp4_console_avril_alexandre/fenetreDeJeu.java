@@ -241,14 +241,23 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
         // TODO add your handling code here:
+                jouerDansColonne(1);
+        if (grilleJeu.colonneRemplie(1) == true) {
+            btn_col_1.setEnabled(false);
+        }
+
         joueurSuivant();
-        jouerDansColonne(1);
+
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(2);
+        if (grilleJeu.colonneRemplie(2) == true) {
+            btn_col_2.setEnabled(false);
+        }
+        joueurSuivant();
+
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
@@ -261,50 +270,75 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(0);
+        if (grilleJeu.colonneRemplie(0) == true) {
+            btn_col_0.setEnabled(false);
+        }
+        joueurSuivant();
+        
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(3);
+        if (grilleJeu.colonneRemplie(3) == true) {
+            btn_col_3.setEnabled(false);
+        }
+        joueurSuivant();
+        
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(4);
+        if (grilleJeu.colonneRemplie(4) == true) {
+            btn_col_4.setEnabled(false);
+        }
+        joueurSuivant();
+        
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(5);
+        if (grilleJeu.colonneRemplie(5) == true) {
+            btn_col_5.setEnabled(false);
+        }
+        joueurSuivant();
+        
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(6);
+        if (grilleJeu.colonneRemplie(6) == true) {
+            btn_col_6.setEnabled(false);
+        }
+        joueurSuivant();
+        
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
-    public void joueurSuivant(){
-        if (joueurCourant == listeJoueurs[0]){
+    public void joueurSuivant() {
+        if (joueurCourant == listeJoueurs[0]) {
             joueurCourant = listeJoueurs[1];
+        } else {
+            joueurCourant = listeJoueurs[0];
         }
-        else joueurCourant = listeJoueurs[0];
         lbl_jcourant.setText(joueurCourant.Nom);
     }
-    
-    public boolean jouerDansColonne(int indice_colonne){
+
+    public boolean jouerDansColonne(int indice_colonne) {
         boolean result;
         //joueurCourant.nbj--; 
-            result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), indice_colonne);
-            panneau_grille.repaint();
-            if (result == true )return true;         
-            else return false;                         
-        }    
+        result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), indice_colonne);
+        panneau_grille.repaint();
+        if (result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -339,40 +373,40 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         });
     }
+
     public void initialiserPartie() {
-              
-        grilleJeu.viderGrille(joueurCourant , joueurCourant ); // vidange de la grille.
+
+        grilleJeu.viderGrille(joueurCourant, joueurCourant); // vidange de la grille.
         // l'utilisateur rentre dans la console.
-        
+
         String nomJ1 = nom_j1.getText();
         Joueur j1 = new Joueur(nomJ1);
-        
+
         String nomJ2 = nom_j2.getText();
         Joueur j2 = new Joueur(nomJ2);
-        
+
         listeJoueurs[0] = j1; // attribuation des couleurs.
         listeJoueurs[1] = j2;
-        
+
         //grilleJeu = new PlateauDeJeu(); // on créé une grille de jeu
         Random r = new Random();
 
         attribuerCouleurAuxJoueurs();
-        System.out.println(j1.Nom + " est de couleur " +j1.couleur);
-        System.out.println(j2.Nom + " est de couleur " +j2.couleur);
-        
+        System.out.println(j1.Nom + " est de couleur " + j1.couleur);
+        System.out.println(j2.Nom + " est de couleur " + j2.couleur);
+
         // MISE A JOUR DES INFOS DE JEUX.
-        
-        lbl_j1_nom1.setText(nomJ1); 
+        lbl_j1_nom1.setText(nomJ1);
         lbl_j1_couleur1.setText(j1.couleur);
-        lbl_j1_desint1.setText(j1.nombreDesintegrateurs+"");
-        
+        lbl_j1_desint1.setText(j1.nombreDesintegrateurs + "");
+
         lbl_j2_nom2.setText(nomJ2);
         lbl_j2_couleur2.setText(j2.couleur);
-        lbl_j2_desint2.setText(j2.nombreDesintegrateurs+"");
-        
+        lbl_j2_desint2.setText(j2.nombreDesintegrateurs + "");
+
         Random couleur = new Random();
         int alea = couleur.nextInt(2);
-        
+
         if (alea == 1) { // on fait commencer un des 2 joueurs aléatoirement.
             joueurCourant = listeJoueurs[0];
             System.out.println(listeJoueurs[0].Nom + " commence");
@@ -381,7 +415,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             System.out.println(listeJoueurs[1].Nom + " commence");
         }
         lbl_jcourant.setText(joueurCourant.Nom);
-        
+
         for (int i = 0; i < 21; i++) { // attribution des 21 jetons aux joueurs.
             Jeton unJeton = new Jeton(listeJoueurs[0].couleur);
             listeJoueurs[0].ajouterJeton(unJeton);
@@ -391,12 +425,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         }
         Random pos = new Random(); // position
         int cpt = 0;
-        
+
         for (int i = 0; i < 5; i++) {
-            
+
             int l = pos.nextInt(5);
             int c = pos.nextInt(6);
-            
+
             if (cpt < 2) {
                 if (!grilleJeu.placerDesintegrateur(l, c)) {
                     cpt--;
@@ -415,15 +449,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         }
     }
-    
-    public void attribuerCouleurAuxJoueurs(){
-        int  r = (int)(2*Math.random()); // random donne un chiffre entre 0 et 1, nous on veut un entie donc on met int
+
+    public void attribuerCouleurAuxJoueurs() {
+        int r = (int) (2 * Math.random()); // random donne un chiffre entre 0 et 1, nous on veut un entie donc on met int
         // et x2
-        if (r ==0){
+        if (r == 0) {
             listeJoueurs[0].couleur = "Rouge";
             listeJoueurs[1].couleur = "Jaune";
-        }
-        else {
+        } else {
             listeJoueurs[0].couleur = "Jaune";
             listeJoueurs[1].couleur = "Rouge";
         }
@@ -466,6 +499,5 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_info_joueurs;
     private javax.swing.JPanel panneau_info_partie;
     // End of variables declaration//GEN-END:variables
-
 
 }
