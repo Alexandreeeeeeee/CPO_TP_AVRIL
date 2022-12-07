@@ -50,8 +50,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                         }
                         grilleJeu.tasserGrille();
                         panneau_grille.repaint(); // on rafraichit le panneau !
-                        lbl_j1_desint1.setText(listeJoueurs[0].nombreDesintegrateurs + ""); // pb d'ajout du nombre de désint.
-                        lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs + "");
+                        lbl_j1_desint1.setText(listeJoueurs[0].nombreDesintegrateurs+""); // pb d'ajout du nombre de désint.
+                        lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs+"");
 
                         boolean vict_j1 = grilleJeu.etreGagnantePourCouleur("Rouge");
                         boolean vict_j2 = grilleJeu.etreGagnantePourCouleur("Jaune");
@@ -123,6 +123,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         btn_col_6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panneau_grille.setBackground(new java.awt.Color(0, 51, 51));
@@ -387,8 +388,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), indice_colonne);
         panneau_grille.repaint();
 
-        lbl_j1_desint1.setText(listeJoueurs[0].nombreDesintegrateurs + ""); // pb d'ajout du nombre de désint.
-        lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs + "");
+        lbl_j2_desint2.setText(listeJoueurs[0].nombreDesintegrateurs+""); // PB D'AJOUT DE DESINTEGRATEUR.
+        lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs+"");
 
         boolean vict_j1 = grilleJeu.etreGagnantePourCouleur("Rouge");
         boolean vict_j2 = grilleJeu.etreGagnantePourCouleur("Jaune");
