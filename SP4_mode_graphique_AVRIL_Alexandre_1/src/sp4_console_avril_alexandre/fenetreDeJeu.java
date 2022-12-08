@@ -16,6 +16,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Joueur[] listeJoueurs = new Joueur[2];
     Joueur joueurCourant;
     PlateauDeJeu grilleJeu = new PlateauDeJeu();
+    boolean avoirDesintegrateur;
 
     public fenetreDeJeu() {
         initComponents();
@@ -49,10 +50,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             }
                         }
                         grilleJeu.tasserGrille();
+                        
                         panneau_grille.repaint(); // on rafraichit le panneau !
                         lbl_j1_desint1.setText(listeJoueurs[0].nombreDesintegrateurs+""); // pb d'ajout du nombre de désint.
                         lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs+"");
-
+                        
                         boolean vict_j1 = grilleJeu.etreGagnantePourCouleur("Rouge");
                         boolean vict_j2 = grilleJeu.etreGagnantePourCouleur("Jaune");
 
@@ -382,15 +384,25 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_jcourant.setText(joueurCourant.Nom);
     }
 
+    public boolean recupererDesintegrateur() {
+        if(avoirDesintegrateur == false){
+            return false;
+        }
+        else{
+            avoirDesintegrateur = false;
+            return true;
+        }
+    }
+    
     public boolean jouerDansColonne(int indice_colonne) {
         boolean result;
         //joueurCourant.nbj--; 
         result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), indice_colonne);
-        panneau_grille.repaint();
-
+        
         lbl_j2_desint2.setText(listeJoueurs[0].nombreDesintegrateurs+""); // PB D'AJOUT DE DESINTEGRATEUR.
         lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs+"");
-
+        panneau_grille.repaint();
+        
         boolean vict_j1 = grilleJeu.etreGagnantePourCouleur("Rouge");
         boolean vict_j2 = grilleJeu.etreGagnantePourCouleur("Jaune");
 

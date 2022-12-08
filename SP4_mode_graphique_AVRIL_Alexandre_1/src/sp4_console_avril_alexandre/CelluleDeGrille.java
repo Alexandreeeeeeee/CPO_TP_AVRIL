@@ -3,7 +3,7 @@ package sp4_console_avril_alexandre;
 public class CelluleDeGrille {
     Jeton jetonCourant;
     boolean avoirTrouNoir;
-    boolean avoirDesintegrateur;
+    private boolean avoirDesintegrateur;
     
     public CelluleDeGrille () { // initialisation 
         jetonCourant = null;
@@ -113,6 +113,15 @@ public boolean placerDesintegrateur() {
             return false;
         }
 
+    }
+    public boolean recupererDesintegrateur() {
+        if(avoirDesintegrateur == false){
+            return false;
+        }
+        else{
+            avoirDesintegrateur = false;
+            return true;
+        }
     }
     // présence désintégrateurs.
     public boolean presenceDesintegrateur() {

@@ -23,31 +23,24 @@ public class PlateauDeJeu {
                     Grille[i][c].supprimerTrouNoir();
                     Grille[i][c].affecterJeton(j);
                     Grille[i][c].supprimerJeton();
-                    
-                    return true;
-                }
+                    Grille[i][c].recupererDesintegrateur();                    
+                    return true;               }
                 if (Grille[i][c].presenceTrouNoir() == true){ // si on en a un seul.
                     System.out.println("\nPresence d'un trou noir, Jeton absorbe\n");
                     Grille[i][c].supprimerTrouNoir();
                     Grille[i][c].affecterJeton(j);
                     Grille[i][c].supprimerJeton();
-                    return true;
-                }
+                    return true;                }
                 if (Grille[i][c].presenceDesintegrateur() == true){ // si on en a un seul.
                     System.out.println("\nPresence d'un désintégrateur, désintégrateur récupéré\n");
                     Grille[i][c].supprimerDesintegrateur();
                     Grille[i][c].affecterJeton(j);
                     Grille[i][c].supprimerJeton();
-                    return true;
-                }
-
+                    Grille[i][c].recupererDesintegrateur();
+                    return true;                }
                 else { // s'il n'y a pas de Trous noirs ou de désintégrateurs on place juste le jeton.
                 Grille[i][c].affecterJeton(j);
-                return true;
-            }
-        }
-    }
-        return false;
+                return true;            }       }   }        return false;
 }
 
 // 2 méthodes qui gèrent le statut de la grille de jeux.
