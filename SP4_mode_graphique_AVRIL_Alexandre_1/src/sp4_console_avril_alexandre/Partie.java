@@ -116,7 +116,7 @@ public class Partie {
                 action = sc.nextInt();
             }
             if (action == 1) {
-                boolean result;
+                int result;
                 System.out.println("Choisis une colonne ou tu veux jouer : ");
                 int c = sc.nextInt() - 1; // -1 important pour pouvoir mettre le jeton dans la bonne colonne.
                 while (c < 0 || c > 7) { // "||" pour un "ou". //
@@ -138,12 +138,12 @@ public class Partie {
                 }
 
                 result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
-                while (result == false) {
+                /*/while (result == false) {
                     System.out.println("La colonne est pleine, choisi-en une autre");
                     c = sc.nextInt() - 1;
                     result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), c);
                     System.out.println("\n");
-                }
+                }/*/
 
                 if (action == 2) { // partie qui gère les désintégrateurs.
                     if (joueurCourant.nombreDesintegrateurs == 0) {
