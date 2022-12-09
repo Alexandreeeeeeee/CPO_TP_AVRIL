@@ -395,12 +395,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
     
     public boolean jouerDansColonne(int indice_colonne) {
-        boolean result;
+        int result;
         //joueurCourant.nbj--; 
         result = grilleJeu.ajouterJetonDansColonne(joueurCourant.reserveJeton.get(joueurCourant.nbj), indice_colonne);
         
-        lbl_j2_desint2.setText(listeJoueurs[0].nombreDesintegrateurs+""); // PB D'AJOUT DE DESINTEGRATEUR.
-        lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs+"");
+        if (result == 1 || result == 100) {
+            joueurCourant.nombreDesintegrateurs ++;
+            lbl_j1_desint1.setText(listeJoueurs[0].nombreDesintegrateurs+""); // PB D'AJOUT DE DESINTEGRATEUR.
+            lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs+"");
+            panneau_grille.repaint();
+        }
+        
+        //lbl_j2_desint2.setText(listeJoueurs[0].nombreDesintegrateurs+""); // PB D'AJOUT DE DESINTEGRATEUR.
+        //lbl_j2_desint2.setText(listeJoueurs[1].nombreDesintegrateurs+"");
         panneau_grille.repaint();
         
         boolean vict_j1 = grilleJeu.etreGagnantePourCouleur("Rouge");
@@ -420,11 +427,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         }
 
-        if (result == true) {
-            return true;
-        } else {
-            return false;
-        }
+        //if (result == 1) {
+        //    return true;
+        //} else {
+        //    return false;
+        //}
+        return false;
     }
 
     /**
